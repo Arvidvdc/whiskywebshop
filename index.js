@@ -12,8 +12,14 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
 // Database connection
-mongoose.connect("mongodb://localhost:27017/whiskywebshop", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
-
+mongoose.connect("mongodb://localhost:27017/whiskywebshop", { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useFindAndModify: false}).then(
+        () => {
+          console.log('Database is connected') },
+        err => { console.log('Can not connect to the database'+ err)}
+    );
 
 // Routes
 app.use(indexRoutes); 
