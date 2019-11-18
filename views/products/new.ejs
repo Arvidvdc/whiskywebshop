@@ -1,0 +1,36 @@
+<div>
+    <h2>Add Product</h2>
+    <form action="/products/new" method="POST">
+        <div>
+            <label>Name:</label>
+            <input name="product[name]" type="text" placeholder="Whiskey">
+        </div>
+        <div>
+            <label>Price:</label>
+            <input name="product[price]" type="number" placeholder="€0,00" min="0">
+        </div>
+        <div>
+            <label>Distillery</label>
+            <input name="product[distillery]" type="text" placeholder="Distillery">
+        </div>
+        <div>
+            <label>Pallet:</label>
+            <input name="product[pallet]" type="text" placeholder="Pallet">
+        </div>
+        <div>
+            <label>Country of origin:</label>
+            <input name="product[country]" type="text" placeholder="Country">
+        </div>
+        <div>
+            <label>Region:</label>
+            <input name="product[region]" type="text" placeholder="Region">
+        </div>
+        <div>
+            <label>Description</label>
+            <textarea name="product[description]" placeholder="About the product..."></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Add Product">
+        </div>
+    </form>
+</div>
