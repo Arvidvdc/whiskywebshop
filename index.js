@@ -4,7 +4,8 @@ const   express         = require("express"),
         bodyParser      = require("body-parser"), 
         Article         = require("./models/article");
 
-// const   indexRoutes     = require("./routes/index");
+const   indexRoutes     = require("./routes/index"),
+        productsRoutes  = require("./routes/products");
 
 // Express variables
 app.set("view engine", "ejs");
@@ -15,7 +16,8 @@ mongoose.connect("mongodb://localhost:27017/whiskywebshop", { useNewUrlParser: t
 
 
 // Routes
-// app.use(indexRoutes); 
+app.use(indexRoutes); 
+app.use("/products", productsRoutes);
 
 // listener
 app.listen(3000, ()=>console.log("Whisky Webshop started on port 3000"));
