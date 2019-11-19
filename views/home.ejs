@@ -1,5 +1,9 @@
+<% include ./partials/header %>
+
 <h1>Whiskeys</h1>
-<button>Sort price low --> high</button>
+<a href="/sort">
+    <button>Sort price low --> high</button>
+</a>
 <% Articles.forEach(article => { %>
     <div data-price="<%= article.price %>">
         <p>
@@ -14,3 +18,5 @@
         </p>
     </div>
 <% }); %>
+
+<% include ./partials/footer %>
