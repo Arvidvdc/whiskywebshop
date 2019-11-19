@@ -6,7 +6,19 @@ exports.default = (req,res)=>{
         if(err) {
             console.log("/ find article error: " + err);
         } else {
-            res.render("home", {Articles: foundArticles});
+            res.render("home", {articles: foundArticles});
         };
     });
 };
+
+// SORTPRICE
+exports.sortPrice = (req,res) =>{
+    Article.find({}).sort("price").exec((err,foundArticles)=>{
+        if(err) {
+            console.log("/ find article error: " + err);
+        } else {
+            res.render("home", {articles: foundArticles});
+        };
+    });
+    
+}
