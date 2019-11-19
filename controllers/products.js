@@ -8,8 +8,7 @@ exports.new = (req, res) => {
 
 exports.new_post = (req, res) => {
     let product = req.body.product;
-    console.log(req.body.product);
-    // res.send("creating product" + product.name);
+    console.log("Created: " +req.body.product.name);
     Article.create(product, (err, newProduct) => {
         if (err) {
             console.log(err);

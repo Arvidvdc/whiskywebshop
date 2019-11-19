@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const articleSchema = new mongoose.Schema({
     name: String,
     price: Number,
-    category: [{type: String}],
     age: Number,
     distillery: String,
     pallet: String,
