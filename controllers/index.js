@@ -1,7 +1,12 @@
 const Article = require("../models/article");
 
-
 // DEFAULT
 exports.default = (req,res)=>{
-    res.render("home");
+    Article.find({}, (err,foundArticles) => {
+        if(err) {
+            console.log("/ find article error: " + err);
+        } else {
+            res.render("home", {foundArticles: foundArticles});
+        };
+    });
 };
