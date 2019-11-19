@@ -6,7 +6,7 @@ exports.default = (req,res)=>{
         if(err) {
             console.log("/ find article error: " + err);
         } else {
-            res.render("home", {foundArticles: foundArticles});
+            res.render("home", {Articles: foundArticles});
         };
     });
 };
