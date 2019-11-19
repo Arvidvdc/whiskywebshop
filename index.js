@@ -2,7 +2,8 @@ const   express         = require("express"),
         app             = express(),
         mongoose        = require("mongoose"),
         bodyParser      = require("body-parser"), 
-        Article         = require("./models/article");
+        Article         = require("./models/article"),
+        seedDB          = require("./seeds");
 
 const   indexRoutes     = require("./routes/index"),
         productsRoutes  = require("./routes/products");
@@ -21,6 +22,9 @@ mongoose.connect("mongodb://localhost:27017/whiskywebshop", {
           console.log('Database is connected') },
         err => { console.log('Can not connect to the database'+ err)}
     );
+
+// Seeden database with default data
+// seedDB();
 
 // Routes
 app.use(indexRoutes); 

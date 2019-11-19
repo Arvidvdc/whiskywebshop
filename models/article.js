@@ -4,7 +4,7 @@ const articleSchema = new mongoose.Schema({
     name: String,
     price: Number,
     category: [{type: String}],
-    age: [{ type: Number}],
+    age: Number,
     distillery: String,
     pallet: String,
     country: String,

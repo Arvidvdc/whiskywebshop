@@ -1,1 +1,14 @@
-<h1>Render home</h1>
+<h1>Whiskeys</h1>
+<button>Sort price low --> high</button>
+<% foundArticles.forEach(article => { %>
+    <p>
+        Name: <%= article.name %> <br>
+        Price: <%= article.price %> <br>
+        Age: <%= article.age %> <br>
+        Distillery: <%= article.distillery %> <br>
+        Pallet: <%= article.pallet %> <br>
+        Country: <%= article.country %> <br>
+        Region: <%= article.region %> <br>
+        Description: <%= article.description %> <br>
+    </p>
+<% }); %>
