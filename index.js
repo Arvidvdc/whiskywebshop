@@ -28,7 +28,7 @@ mongoose.connect("mongodb://localhost:27017/whiskywebshop", {
 
 // Routes
 app.use(indexRoutes); 
-app.use("/products", productsRoutes);
+app.use("/producten", productsRoutes);
 
 // listener
 app.listen(3000, ()=>console.log("Whisky Webshop started on port 3000"));

@@ -1,40 +1,40 @@
 <div>
-    <h2>Add Product</h2>
-    <form action="/products/new" method="POST">
+    <h2>Voeg Product Toe</h2>
+    <form action="/producten/nieuw" method="POST">
         <div>
-            <label>Name:</label>
-            <input name="product[name]" type="text" placeholder="Whiskey" required>
+            <label>Naam:</label>
+            <input name="product[name]" type="text" placeholder="Whisky" required>
         </div>
         <div>
-            <label>Price:</label>
+            <label>Prijs:</label>
             <input name="product[price]" type="number" placeholder="€ 0,00" min="0" step="0.1" required>
         </div>
         <div>
-            <label>Age:</label>
+            <label>Leeftijd:</label>
             <input name="product[age]" type="number" min="3" placeholder="3">
         </div>
         <div>
-            <label>Distillery</label>
-            <input name="product[distillery]" type="text" placeholder="Distillery">
+            <label>Distillerij</label>
+            <input name="product[distillery]" type="text" placeholder="Distillerij">
         </div>
         <div>
             <label>Pallet:</label>
             <input name="product[pallet]" type="text" placeholder="Pallet">
         </div>
         <div>
-            <label>Country of origin:</label>
-            <input name="product[country]" type="text" placeholder="Country">
+            <label>Land van herkomst:</label>
+            <input name="product[country]" type="text" placeholder="Land">
         </div>
         <div>
-            <label>Region:</label>
-            <input name="product[region]" type="text" placeholder="Region">
+            <label>Regio:</label>
+            <input name="product[region]" type="text" placeholder="Regio">
         </div>
         <div>
-            <label>Description</label>
-            <textarea name="product[description]" placeholder="About the product..."></textarea>
+            <label>Descriptie:</label>
+            <textarea name="product[description]" placeholder="Over het product..."></textarea>
         </div>
         <div>
-            <input type="submit" value="Add Product">
+            <input type="submit" value="Voeg toe">
         </div>
     </form>
 </div>

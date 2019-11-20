@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-<h1>Whiskeys</h1>
+<h1>Whiskys</h1>
 <div>
     <button id="sortPrice">Sorteer op prijs</button>
 </div>
@@ -9,14 +9,14 @@
     <% articles.forEach(article => { %>
     <div class="article" data-price="<%= article.price %>">
         <p>
-            Name: <%= article.name %> <br>
-            Price: € <%= article.price %> <br>
-            Age: <%= article.age %> <br>
-            Distillery: <%= article.distillery %> <br>
+            Naam: <%= article.name %> <br>
+            Prijs: € <%= article.price %> <br>
+            Leeftijd: <%= article.age %> <br>
+            Distillerij: <%= article.distillery %> <br>
             Pallet: <%= article.pallet %> <br>
-            Country: <%= article.country %> <br>
-            Region: <%= article.region %> <br>
-            Description: <%= article.description %> <br>
+            Land van herkomst: <%= article.country %> <br>
+            Regio: <%= article.region %> <br>
+            Descriptie: <%= article.description %> <br>
         </p>
     </div>
     <% }); %>

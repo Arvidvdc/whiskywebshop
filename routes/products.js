@@ -4,9 +4,9 @@ const   express             = require("express"),
         product_controller  = require("../controllers/products");
 
 // NEW ROUTE
-router.get("/new", product_controller.new);
+router.get("/nieuw", product_controller.new);
 
-router.post("/new", product_controller.new_post);
+router.post("/nieuw", product_controller.new_post);
 
 // Export Router
 module.exports = router;
