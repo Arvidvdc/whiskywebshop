@@ -1,11 +1,13 @@
 <% include ./partials/header %>
 
 <h1>Whiskeys</h1>
-<a href="/sort">
-    <button>Sort price low --> high</button>
-</a>
-<% articles.forEach(article => { %>
-    <div data-price="<%= article.price %>">
+<div>
+    <button id="sortPrice">Sorteer op prijs</button>
+</div>
+
+<div id="articles">
+    <% articles.forEach(article => { %>
+    <div class="article" data-price="<%= article.price %>">
         <p>
             Name: <%= article.name %> <br>
             Price: € <%= article.price %> <br>
@@ -17,6 +19,7 @@
             Description: <%= article.description %> <br>
         </p>
     </div>
-<% }); %>
+    <% }); %>
+</div>
 
 <% include ./partials/footer %>
