@@ -4,7 +4,7 @@ var articles = "";
 window.onload = () => {
     getArticles();
     handleSorting();
-};
+}
 
 // gets all articles currently in the DOM
 function getArticles() {
