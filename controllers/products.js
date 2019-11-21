@@ -12,10 +12,10 @@ exports.new_post = (req, res) => {
     Article.create(product, (err, newProduct) => {
         if (err) {
             console.log(err);
-            res.redirect("/products/new");
+            res.redirect("/producten/nieuw");
         } else {
             console.log("created product: " + req.body.product.name);
-            res.redirect("/products/new");
+            res.redirect("/");
         }
     });
 }
