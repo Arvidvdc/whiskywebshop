@@ -11,13 +11,13 @@
             </div>
             <div class="col">
                     <div><%= article.name %></div>
-                    <div><%= article.price.toFixed(2) %></div>
+                    <div>€ <%= article.price.toFixed(2).replace(".",",") %></div>
             </div>
             <div class="col">
                     <input type="number" name="aantal" min="1" step="1" value= <%= article.amount %> >
             </div>
             <div class="col">
-                    <%= (article.price * article.amount).toFixed(2) %>
+                    € <%= (article.price * article.amount).toFixed(2).replace(".",",") %>
             </div>
         </div>
     </div>
