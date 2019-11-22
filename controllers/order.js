@@ -6,7 +6,7 @@ exports.order = (req, res) => {
 }
 
 exports.order_post = (req, res) => {
-    res.send("making db entry and redirecting...");
+    res.send("making temp address and redirecting to payment...");
 }
 
 // PAYMENT
@@ -14,8 +14,11 @@ exports.payment = (req, res) => {
     res.render("./order/payment");
 }
 
-exports.payment_update = (req, res) => {
+exports.payment_post = (req, res) => {
     res.send("order complete!");
 }
 
-// payment get & put
+// CONFIRMATION
+exports.confirmation = (req, res) => {
+    res.render("./order/confirmation");
+}

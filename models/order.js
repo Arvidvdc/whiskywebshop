@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
-    email: String,
+    products: [{}],
     address: {
         company: String,
         firstname: String,
@@ -11,7 +11,8 @@ const orderSchema = new mongoose.Schema({
         phone: String,
         street: String,
         city: String 
-    }
+    },
+    paid: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model("Order", orderSchema);
