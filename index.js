@@ -7,7 +7,8 @@ const   express               = require("express"),
 
 const   indexRoutes           = require("./routes/index"),
         productsRoutes        = require("./routes/products"),
-        shoppingcartsRoutes   = require("./routes/shopping-cart");
+        shoppingcartsRoutes   = require("./routes/shopping-cart"),
+        orderRoutes           = require("./routes/order");
 
 // Express variables
 app.set("view engine", "ejs");
@@ -31,6 +32,7 @@ mongoose.connect("mongodb://localhost:27017/whiskywebshop", {
 app.use(indexRoutes); 
 app.use("/producten", productsRoutes);
 app.use("/winkelwagen", shoppingcartsRoutes);
+app.use("/order", orderRoutes);
 
 // listener
 app.listen(3000, ()=>console.log("Whisky Webshop started on port 3000"));
