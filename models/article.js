@@ -8,7 +8,8 @@ const articleSchema = new mongoose.Schema({
     pallet: String,
     country: String,
     region: String,
-    description: String
+    description: String,
+    image: String
 });
 
 module.exports = mongoose.model("Article", articleSchema);
