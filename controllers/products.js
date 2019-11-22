@@ -33,9 +33,11 @@ function addItem(name, price, ammount) {
         price: price,
         ammount: ammount
     }
-    for
+    let exists;
+    let index = -1;
     shoppingCartArray.forEach(item => {
-        var exists = Object.keys(item).some((i) => {
+        ++index;
+        exists = Object.keys(item).some((i) => {
             return item[i] === name;
         });
         console.log(exists);
@@ -43,8 +45,7 @@ function addItem(name, price, ammount) {
     });
     if (exists) {
         console.log('newOrder ' + newOrder.ammount);
-        console.log('item ' + item.ammount);
-        item.ammount += newOrder.ammount;
+        shoppingCartArray[index].ammount += newOrder.ammount;
         return shoppingCartArray;
     }
     shoppingCartArray.push(newOrder);
