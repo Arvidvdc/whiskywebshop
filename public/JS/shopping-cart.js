@@ -30,6 +30,34 @@ const cart = {
         if (found && found[0]){
             return found[0];
         }
+    },
+    add(id, addNum) {
+        if(cart.find(id)){
+            cart.increase(id, addNum);
+        } else {
+            // check if product exists in db
+            let arr = articles.filter(product => {
+                if (product.id == id) {
+                    return true;
+                }
+            });
+            if (addNum == 0 || addNum == undefined) {
+                addNum = 1;
+            }
+            // if product exists in db  add product to order array
+            if (arr && arr[0]) {
+                let prod = {
+                    id:     arr[0].id,
+                    name:   arr[0].name,
+                    amount: addNum,
+                    Price:  arr[0].price
+                };
+                cart.order.push(prod);
+                cart.sync();
+            } else {
+                console.log("invalid product");
+            }
+        }
     }
 }
 // array to collect items for shoppingcart
