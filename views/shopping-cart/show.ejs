@@ -14,7 +14,8 @@
                         <div>€ <%= article.price.toFixed(2).replace(".",",") %></div>
                 </div>
                 <div class="col">
-                        <input type="number" readonly  class="form-control-plaintext" name="aantal" min="1" step="1" value="<%= article.amount %>" >
+                        <input type="number" readonly class="form-control-plaintext" name="aantal" min="1" step="1"
+                                value="<%= article.amount %>">
                 </div>
                 <div class="col">
                         € <%= (article.price * article.amount).toFixed(2).replace(".",",") %>
@@ -24,7 +25,9 @@
 <% }); %>
 
 <div class="d-flex justify-content-end">
-     <button>Afrekenen</button>   
+        <a href="/bestellen">
+                <button class="btn btn-primary">Afrekenen</button>
+        </a>
 </div>
 
 
