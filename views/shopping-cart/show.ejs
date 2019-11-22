@@ -4,25 +4,28 @@
 
 <!-- Display order items -->
 <% order.forEach(article => { %>
-    <div class="article" data-price="<%= article.price %>"  data-id="<%= article.id %>">
+<div class="article" data-price="<%= article.price %>" data-id="<%= article.id %>">
         <div class="row">
-            <div class="col">
-                    productafbeelding
-            </div>
-            <div class="col">
-                    <div><%= article.name %></div>
-                    <div>€ <%= article.price.toFixed(2).replace(".",",") %></div>
-            </div>
-            <div class="col">
-                    <input type="number" name="aantal" min="1" step="1" value= <%= article.amount %> >
-            </div>
-            <div class="col">
-                    € <%= (article.price * article.amount).toFixed(2).replace(".",",") %>
-            </div>
+                <div class="col">
+                        productafbeelding
+                </div>
+                <div class="col">
+                        <div><%= article.name %></div>
+                        <div>€ <%= article.price.toFixed(2).replace(".",",") %></div>
+                </div>
+                <div class="col">
+                        <input type="number" readonly  class="form-control-plaintext" name="aantal" min="1" step="1" value="<%= article.amount %>" >
+                </div>
+                <div class="col">
+                        € <%= (article.price * article.amount).toFixed(2).replace(".",",") %>
+                </div>
         </div>
-    </div>
+</div>
 <% }); %>
 
-<button style="float: right;">Afrekenen</button>
+<div class="d-flex justify-content-end">
+     <button>Afrekenen</button>   
+</div>
+
 
 <% include ../partials/footer %>
