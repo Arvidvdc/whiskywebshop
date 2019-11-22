@@ -1,5 +1,56 @@
 <% include ../partials/header %>
 
-<h1>Order page</h1>
+<div class="container">
+    <h1>Bestellen</h1>
+
+    <!-- add adres form -->
+    <form action="/bestellen" method="POST">
+        <div class="form-group row">
+            <div class="col">
+                <label>Bedrijfsnaam:</label>
+                <input class="form-control" name="address[company]" type="text" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <label>Voornaam:</label>
+                <input class="form-control" name="address[firstname]" type="text" placeholder="">
+            </div>
+            <div class="col">
+                <label>Achternaam:</label>
+                <input class="form-control" name="address[lastname]" type="text" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label>Postcode:</label>
+                <input class="form-control" name="address[zipcode]" type="text" placeholder="">
+            </div>
+            <div class="col-md-2">
+                <label>Huisnr & toev.</label>
+                <input class="form-control" name="address[nr]" type="text" placeholder="">
+            </div>
+            <div class="col-md-6">
+                <label>Telefoonnummer (mobiel):</label>
+                <input class="form-control" name="address[phone]" type="text" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <label>Straat:</label>
+                <input class="form-control" name="address[street]" type="text" placeholder="">
+            </div>
+            <div class="col">
+                <label>Plaats:</label>
+                <input class="form-control" name="address[city]" type="text" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Verder met bestellen</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 <% include ../partials/footer %>
