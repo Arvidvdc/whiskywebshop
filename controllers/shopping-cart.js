@@ -1,5 +1,5 @@
 
 // SHOW
 exports.show = (req,res) => {
-    res.send("shoppingCart" + req);
+    res.render("./shopping-cart/show.ejs");
 }
