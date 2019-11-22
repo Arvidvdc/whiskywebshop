@@ -12,7 +12,8 @@ const orderSchema = new mongoose.Schema({
         street: String,
         city: String 
     },
-    paid: { type: Boolean, default: false }
+    paid: { type: Boolean, default: false },
+    orderedAt: new Date
 });
 
 module.exports = mongoose.model("Order", orderSchema);
