@@ -25,9 +25,6 @@ var shoppingCartArray = [];
 
 // function to add items to shoppingcart array
 function addItem(name, price, ammount) {
-    if (ammount == 0) {
-        ammount = 1;
-    }
     let newOrder = {
         name: name,
         price: price,
@@ -50,4 +47,37 @@ function addItem(name, price, ammount) {
     }
     shoppingCartArray.push(newOrder);
     return shoppingCartArray;
+}
+
+// create variables for  desired tags
+var productsName = "",
+    productsPrice = "",
+    productsAmmount = "";
+    orderButtons = "";
+
+// add tags to arrays
+function getProducts() {
+    productsName = $("label[product-name]");
+    productsPrice = $("label[product-price]");
+    productsAmmount = $("input[name]");
+    orderButtons = $("button");
+}
+
+// start functionality on window load
+window.onload = () => {
+    getProducts();
+    // add event listener to order buttons as trigger for addItem function
+    orderButtons.forEach((button) => {
+        let index = 0;
+        button.addEventListener('click', () => {
+            let name = productsName[index],
+                price = productsPrice[index],
+                ammount = productsAmmount[index].valueOf();
+            if (ammount === undefined) {
+                ammount = 1;
+            }
+            addItem(name, price, ammount);
+        });
+        ++index;
+    });
 }
