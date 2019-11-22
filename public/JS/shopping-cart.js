@@ -1,5 +1,8 @@
 // const object to be saved into local storage
 const cart = {
+    // unique key to identify the cart
+    Key: "123456",
+    order: []
    
 }
 // array to collect items for shoppingcart
