@@ -10,17 +10,19 @@ let data=[
         pallet: "Fruty",
         country: "Ireland",
         region: "Dublin",
-        description: "Blend"
+        description: "Blend",
+        image: "https://cdn.pixabay.com/photo/2017/11/12/15/14/whiskey-2942734_960_720.jpg"
     },
     {
-        name: "Highland Park",
-        price: 10,
-        age: 15,
-        distillery: "Highland Park",
+        name: "Bowmore",
+        price: 39.99,
+        age: 12,
+        distillery: "Bowmore",
         pallet: "Fruty",
         country: "Scotland",
-        region: "Highlands",
-        description: "Blend"
+        region: "Islay",
+        description: "Single Malt",
+        image: "https://cdn.pixabay.com/photo/2015/07/08/10/39/bowmore-835870_960_720.jpg"
     },
     {
         name: "Jack Daniels",
@@ -30,7 +32,8 @@ let data=[
         pallet: "Corney",
         country: "USA",
         region: "Iowa",
-        description: "Bourbon"
+        description: "Bourbon",
+        image: "https://cdn.pixabay.com/photo/2018/03/04/09/26/drink-3197547_960_720.jpg"
     },
     {
         name: "GlenFiddich",
@@ -40,7 +43,19 @@ let data=[
         pallet: "pear",
         country: "Scotland",
         region: "Highlands",
-        description: "Single malt, delicious"
+        description: "Single malt, delicious",
+        image: "https://cdn.pixabay.com/photo/2016/10/13/15/37/bottles-1738057_960_720.jpg"
+    },
+    {
+        name: "Johnnie Walker",
+        price: 19.99,
+        age: 12,
+        distillery: "Diageo",
+        pallet: "Gebalanceerd en Ziltig",
+        country: "Scotland",
+        region: "Highlands",
+        description: "Blend, gangbare smaak",
+        image: "https://www.totalwine.com/dynamic/490x/media/sys_master/twmmedia/h95/hd8/11785453305886.png"
     },
 ];
 
