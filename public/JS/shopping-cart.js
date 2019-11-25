@@ -70,7 +70,6 @@ const cart = {
     }
 }
 
-<<<<<<< HEAD
 const loadedProd = [];
 
 function load() {
@@ -109,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     listeners();
     load();
 });
-=======
 function totalPrice(){
     var articles = document.querySelectorAll(".article");
     var totalPriceCart=0;
@@ -119,4 +117,3 @@ function totalPrice(){
     }
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
 }
->>>>>>> b2a4730e346b9aa6c3560bb7a976aadc4fe40fef
