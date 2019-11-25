@@ -25,14 +25,13 @@ const cart = {
                 return true;
             }
         });
-        console.log("find func " + found + " " + found[0]);
         // return found product
         if (found && found[0]){
             return found[0];
         }
     },
     // add product to cart, standard amount is one, if other value is given that overrides 
-    add(id, addAmm=1) {
+    add(id, addAmm) {
         // check if product exists in db
         if(cart.find(id)){
             cart.increase(id, addAmm);
@@ -42,7 +41,6 @@ const cart = {
                     return true;
                 }
             });
-            console.log("arr find " + arr);
             // check if product exists in db  add product to order array
             if (arr && arr[0]) {
                 let prod = {
@@ -61,9 +59,14 @@ const cart = {
     // function to increase amount ordered
     increase(id, am){
         cart.order = cart.order.map(item => {
-            if (item.id == id) {
-                item.amount += am;
-                return item;
+            if (item.id === id) {
+                if (item.amount === undefined || item.amount === null || item.amount === ""){
+                    item.amount = 1;
+                }
+                let calc1 = parseInt(item.amount, 10),
+                    calc2 = parseInt(am, 10);
+                item.amount =  calc1 + calc2;
+                // return item;
             }
         });
         cart.sync();
@@ -77,7 +80,6 @@ const loadedProd = [];
 function load() {
     let test = document.getElementsByClassName('article');
     for (let i = 0; i < test.length; i++) {
-        console.log(test[i].dataset.price);
         var name = test[i].dataset.name,
             price = test[i].dataset.price,
             id = test[i].dataset.id;
@@ -95,17 +97,16 @@ function load() {
 // function to add listeners to add to order buttons
 function listeners() {
     let buttons = document.getElementsByName("orderBTN");
-    console.log(buttons);
-    buttons.forEach(BTN => {
-        let i = 0;
-        BTN.addEventListener('click', () => {
-            let qty = document.getElementById(buttons[i].value).value;
-            console.log(qty);
-            console.log("btn value " + BTN.value);
-            cart.add(BTN.value, qty);
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', () => {
+            var btnid = buttons[i].value
+            let qty = document.getElementById(btnid).value;
+            if (qty === ""){
+                qty = 1;
+            }
+            cart.add(btnid, qty);
         });
-        ++i;
-    });
+    }
     
 }
 // start all basic functions that need to run on page load
@@ -114,10 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     listeners();
     load();
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> a9be67b83cff2cf915e88c224a4d9510157f524c
 function totalPrice(){
     var articles = document.querySelectorAll(".article");
     var totalPriceCart=0;
