@@ -7,17 +7,15 @@
 
 <div id="articles" class="row" data-loaded="products">
     <% articles.forEach(article => { %>
-        <div class="article col col-md-4" data-price="<%= article.price %>">
+        <div class="article col col-md-4" data-price="<%= article.price %>" data-prodName="<%= article.name %>" data-prodId="<%= article.id %>">
             <div class="thumbnail">
                 <img src="<%= article.image %>" alt="">
                 <div class="caption">
-                    <form action="" method="GET">
-                        <h4><label id="name"><%= article.name %></label></h4>
-                        <span class="d-flex justify-content-end">€ <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label></span>
-                        <%= article.description %> <br>
-                        <input type="number" name="amount" placeholder="0" min="0"> 
-                        <button type="button" name="order">bestellen</button>
-                    </form>
+                    <h4><label id="name"><%= article.name %></label></h4>
+                    <span class="d-flex justify-content-end">€ <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label></span>
+                    <%= article.description %> <br>
+                    <input type="number" name="amount" placeholder="0" min="0"> 
+                    <button type="button" name="orderBTN">bestellen</button>
                 </div>
             </div>
         </div>
