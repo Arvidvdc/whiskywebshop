@@ -8,18 +8,18 @@
 <div id="articles" class="row">
     <% articles.forEach(article => { %>
         <div class="article col col-md-4" data-price="<%= article.price %>">
-                <form action="" method="GET">
-                    Naam: <label id="name"><%= article.name %></label> <br>
-                    Prijs: € <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label> <br>
-                    Leeftijd: <%= article.age %> <br>
-                    Distillerij: <%= article.distillery %> <br>
-                    Pallet: <%= article.pallet %> <br>
-                    Land van herkomst: <%= article.country %> <br>
-                    Regio: <%= article.region %> <br>
-                    Descriptie: <%= article.description %> <br>
-                    <input type="number" name="amount" placeholder="0" min="0"> 
-                    <button type="submit" name="order">bestellen</button>
-                </form>
+            <div class="thumbnail">
+                <img src="<%= article.image %>" alt="">
+                <div class="caption">
+                    <form action="" method="GET">
+                        <h4><label id="name"><%= article.name %></label></h4>
+                        <span class="d-flex justify-content-end">€ <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label></span>
+                        <%= article.description %> <br>
+                        <input type="number" name="amount" placeholder="0" min="0"> 
+                        <button type="submit" name="order">bestellen</button>
+                    </form>
+                </div>
+            </div>
         </div>
     <% }); %>
 </div>

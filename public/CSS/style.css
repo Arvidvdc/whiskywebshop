@@ -1,3 +1,12 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+    margin: 10px 0;
+}
