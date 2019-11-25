@@ -21,7 +21,7 @@ const cart = {
     find(id) {
         // create a true statement if product exists in order array
         let found = cart.order.filter(item => {
-            if(item._id == id){
+            if(item.id == id){
                 return true;
             }
         });
@@ -61,7 +61,7 @@ const cart = {
     // function to increase amount ordered
     increase(id, am){
         cart.order = cart.order.map(item => {
-            if (item.id === id) {
+            if (item.id == id) {
                 item.amount += am;
                 return item;
             }
@@ -70,15 +70,17 @@ const cart = {
     }
 }
 
-<<<<<<< HEAD
+// known products array
 const loadedProd = [];
 
+// function to load known products into array, to check if product exists
 function load() {
-    let test = document.getElementById('articles').getElementsByTagName('div');
+    let test = document.getElementsByClassName('article');
     for (let i = 0; i < test.length; i++) {
-        let name = test[i].data-name,
-            price = test[i].data-price,
-            id = test[i].data-id;
+        console.log(test[i].dataset.price);
+        var name = test[i].dataset.name,
+            price = test[i].dataset.price,
+            id = test[i].dataset.id;
         
         loadedProd.push({
             id:     id,
@@ -88,28 +90,31 @@ function load() {
         
     }
     return loadedProd;
-    console.log(test);
 }
 
+// function to add listeners to add to order buttons
 function listeners() {
     let buttons = document.getElementsByName("orderBTN");
+    console.log(buttons);
     buttons.forEach(BTN => {
         let i = 0;
         BTN.addEventListener('click', () => {
             let qty = document.getElementById(buttons[i].value).value;
-            console.log("btn value " + BTN.value)
+            console.log(qty);
+            console.log("btn value " + BTN.value);
             cart.add(BTN.value, qty);
         });
         ++i;
     });
     
 }
+// start all basic functions that need to run on page load
 document.addEventListener('DOMContentLoaded', () => {
     cart.init();
     listeners();
     load();
 });
-=======
+
 function totalPrice(){
     var articles = document.querySelectorAll(".article");
     var totalPriceCart=0;
@@ -119,4 +124,3 @@ function totalPrice(){
     }
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
 }
->>>>>>> b2a4730e346b9aa6c3560bb7a976aadc4fe40fef
