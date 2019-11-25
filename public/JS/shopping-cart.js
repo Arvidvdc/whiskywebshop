@@ -68,3 +68,13 @@ const cart = {
         cart.sync();
     }
 }
+
+function totalPrice(){
+    var articles = document.querySelectorAll(".article");
+    var totalPriceCart=0;
+    for(let i=0; i<articles.length;i++){
+        let subtotal=articles[i].dataset.price * articles[i].dataset.amount;
+        totalPriceCart+=subtotal;
+    }
+    document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
+}

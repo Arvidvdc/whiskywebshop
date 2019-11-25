@@ -2,27 +2,53 @@
 
 <h1> Winkelmand</h1>
 
-<!-- Display order items -->
-<% order.forEach(article => { %>
-<div class="article" data-price="<%= article.price %>" data-id="<%= article.id %>">
-        <div class="row">
-                <div class="col">
-                        <img src="<%= article.image %>" alt="" width="40px" height="60px">
-                </div>
-                <div class="col">
-                        <div><%= article.name %></div>
-                        <div>€ <%= article.price.toFixed(2).replace(".",",") %></div>
-                </div>
-                <div class="col">
-                        <input type="number" readonly class="form-control-plaintext" name="aantal" min="1" step="1"
-                                value="<%= article.amount %>">
-                </div>
-                <div class="col">
-                        € <%= (article.price * article.amount).toFixed(2).replace(".",",") %>
-                </div>
+<!-- Headers for column -->
+<div class="row header">
+        <div class="col col-md-3">
+                &nbsp;
+        </div>
+        <div class="col col-md-3">
+                <strong>Product en prijs</strong>
+        </div>
+        <div class="col col-md-3">
+                <strong>Aantal besteld</strong>
+        </div>
+        <div class="col col-md-3">
+                <strong>Subtotaal</strong>
         </div>
 </div>
+
+<!-- Display order items -->
+<% order.forEach(article => { %>
+        <div class="article" data-price="<%= article.price %>" data-amount="<%= article.amount %>" data-id="<%= article.id %>">
+                <div class="row">
+                        <div class="col col-md-3">
+                                <img src="<%= article.image %>" alt="" width="40px" height="60px">
+                        </div>
+                        <div class="col col-md-3">
+                                <div><%= article.name %></div>
+                                <div>€ <%= article.price.toFixed(2).replace(".",",") %></div>
+                        </div>
+                        <div class="col col-md-3">
+                                <input type="number" readonly class="form-control-plaintext" name="aantal" min="1" step="1" value="<%= article.amount %>">
+                        </div>
+                        <div class="col col-md-3">
+                                € <%= (article.price * article.amount).toFixed(2).replace(".",",") %>
+                        </div>
+                </div>
+        </div>
 <% }); %>
+
+<!-- total shopping-cart -->
+<div class="row">
+        <div class="col col-md-6"></div>
+        <div class="col col-md-3 d-flex justify-content-end">
+                <strong>Totaal: </strong>
+        </div>
+        <div id="TotalAmount" class="col col-md-3">
+                
+        </div>
+</div>
 
 <div class="d-flex justify-content-end">
         <a href="/bestellen">
@@ -30,5 +56,8 @@
         </a>
 </div>
 
+<!-- Script lines -->
+<script src="/JS/shopping-cart.js"></script>
+<script>totalPrice();</script>
 
 <% include ../partials/footer %>
