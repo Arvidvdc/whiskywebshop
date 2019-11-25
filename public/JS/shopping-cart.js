@@ -70,10 +70,7 @@ const cart = {
     }
 }
 
-<<<<<<< HEAD
 // known products array
-=======
->>>>>>> a9be67b83cff2cf915e88c224a4d9510157f524c
 const loadedProd = [];
 
 // function to load known products into array, to check if product exists
