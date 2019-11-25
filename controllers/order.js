@@ -5,10 +5,6 @@ exports.order = (req, res) => {
     res.render("./order/order");
 }
 
-exports.order_post = (req, res) => {
-    res.send("Putting adres into sessionStorage and redirecting to payment...");
-}
-
 // PAYMENT
 exports.payment = (req, res) => {
     res.render("./order/payment");
