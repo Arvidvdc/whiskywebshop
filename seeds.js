@@ -10,8 +10,8 @@ let data=[
         pallet: "Fruty",
         country: "Ireland",
         region: "Dublin",
-        description: "Blend",
-        image: "https://cdn.pixabay.com/photo/2017/11/12/15/14/whiskey-2942734_960_720.jpg"
+        description: "Een van de bekendste whiskeys uit Ierland die zijn weerga niet kent. Het is een blended whiskey die van alle markten thuis is.",
+        image: "https://images.pexels.com/photos/1534824/pexels-photo-1534824.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
         name: "Bowmore",
@@ -21,19 +21,19 @@ let data=[
         pallet: "Fruty",
         country: "Scotland",
         region: "Islay",
-        description: "Single Malt",
+        description: "Een karakteristieke whisky van het eiland Islay waar de invloed van de zee zijn uitwerking heeft op de smaak van de whisky. Een whisky voor fijn proevers.",
         image: "https://cdn.pixabay.com/photo/2015/07/08/10/39/bowmore-835870_960_720.jpg"
     },
     {
-        name: "Jack Daniels",
+        name: "Gallantry Whiskey",
         price: 5,
         age: 5,
-        distillery: "Jack Daniels distilleries",
+        distillery: "Gallantry distilleries",
         pallet: "Corney",
         country: "USA",
         region: "Iowa",
-        description: "Bourbon",
-        image: "https://cdn.pixabay.com/photo/2018/03/04/09/26/drink-3197547_960_720.jpg"
+        description: "Een zeer onbekende whiskey maar zeer kenmerkend van smaak. Zeker een whiskey die het proeven waard is.",
+        image: "https://images.pexels.com/photos/2529468/pexels-photo-2529468.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
         name: "GlenFiddich",
@@ -43,7 +43,7 @@ let data=[
         pallet: "pear",
         country: "Scotland",
         region: "Highlands",
-        description: "Single malt, delicious",
+        description: "Glen Fiddich is een distillerij die bekend staat om zijn experimentele whisky's. De 12 jaar oude is echter een standaard whisky met een fijne peer smaak die als basis dient voor de experimentele whisky's van Glen Fidich.",
         image: "https://cdn.pixabay.com/photo/2016/10/13/15/37/bottles-1738057_960_720.jpg"
     },
     {
@@ -54,7 +54,7 @@ let data=[
         pallet: "Gebalanceerd en Ziltig",
         country: "Scotland",
         region: "Highlands",
-        description: "Blend, gangbare smaak",
+        description: "Keep on Walking is de slogan van de Johnnie Walker distillerij. Dit thema brengen zijn tot hun recht in de vele films die zij sponsoren. ",
         image: "https://www.totalwine.com/dynamic/490x/media/sys_master/twmmedia/h95/hd8/11785453305886.png"
     },
 ];
