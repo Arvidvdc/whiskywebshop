@@ -20,7 +20,13 @@
 </div>
 
 <!-- Display order items -->
-<% order.forEach(article => { %>
+<% 
+async orderList = () => {
+        await list = cart.order;
+        return list;
+}
+orderList.forEach(article => { 
+        %>
         <div class="article" data-price="<%= article.price %>" data-amount="<%= article.amount %>" data-id="<%= article.id %>">
                 <div class="row">
                         <div class="col col-md-1">
