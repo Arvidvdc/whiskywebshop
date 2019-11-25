@@ -10,7 +10,7 @@
         <div class="article col col-md-4" data-price="<%= article.price %>">
                 <form action="" method="GET">
                     Naam: <label id="name"><%= article.name %></label> <br>
-                    Prijs: € <label id="price"><%= article.price %></label> <br>
+                    Prijs: € <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label> <br>
                     Leeftijd: <%= article.age %> <br>
                     Distillerij: <%= article.distillery %> <br>
                     Pallet: <%= article.pallet %> <br>
