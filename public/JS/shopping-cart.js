@@ -31,7 +31,7 @@ const cart = {
         }
     },
     // add product to cart, standard amount is one, if other value is given that overrides 
-    add(id, addAmm=1) {
+    add(id, addAmm) {
         // check if product exists in db
         if(cart.find(id)){
             cart.increase(id, addAmm);
@@ -59,11 +59,14 @@ const cart = {
     // function to increase amount ordered
     increase(id, am){
         cart.order = cart.order.map(item => {
-            if (item.id == id) {
+            if (item.id === id) {
+                if (item.amount === undefined || item.amount === null || item.amount === ""){
+                    item.amount = 1;
+                }
                 let calc1 = parseInt(item.amount, 10),
                     calc2 = parseInt(am, 10);
                 item.amount =  calc1 + calc2;
-                return item;
+                // return item;
             }
         });
         cart.sync();
@@ -98,6 +101,9 @@ function listeners() {
         buttons[i].addEventListener('click', () => {
             var btnid = buttons[i].value
             let qty = document.getElementById(btnid).value;
+            if (qty === ""){
+                qty = 1;
+            }
             cart.add(btnid, qty);
         });
     }
