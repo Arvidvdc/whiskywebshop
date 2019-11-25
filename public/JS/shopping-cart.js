@@ -101,9 +101,6 @@ function listeners() {
             cart.add(btnid, qty);
         });
     }
-    // buttons.forEach(BTN => {
-    //     
-    // });
     
 }
 // start all basic functions that need to run on page load
