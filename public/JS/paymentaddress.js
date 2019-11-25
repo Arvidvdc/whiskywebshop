@@ -26,7 +26,7 @@ const address = {
         };
         address.update();
     },
-    // put content to 
+    // put content to sessionStorage
     async update() {
         let newAddress = JSON.stringify(address.contents);
         await sessionStorage.setItem(address.key, newAddress);
@@ -45,6 +45,7 @@ function addAddress() {
     });
 }
 
+// initialize address on load and assign eventlistener to the button.
 window.addEventListener("DOMContentLoaded", () => {
     address.init();
     if (document.getElementById("addressBtn")) {
