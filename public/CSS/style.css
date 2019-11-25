@@ -1,3 +1,22 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+    margin: 10px 0;
+}
+
+#TotalAmount {
+    font-weight: bold;
+}
+
+.cart-image {
+    width: 40px;
+    height: 60px;
+    margin: 5px 0;
+}

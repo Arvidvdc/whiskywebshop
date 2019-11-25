@@ -6,7 +6,7 @@ exports.order = (req, res) => {
 }
 
 exports.order_post = (req, res) => {
-    res.send("making temp address and redirecting to payment...");
+    res.send("Putting adres into sessionStorage and redirecting to payment...");
 }
 
 // PAYMENT
@@ -15,6 +15,10 @@ exports.payment = (req, res) => {
 }
 
 exports.payment_post = (req, res) => {
+    // create order db entry
+        //include currentDate as orderedAt
+
+    // redirect to payment provider
     res.send("order complete!");
 }
 
