@@ -58,17 +58,28 @@ const cart = {
     },
     // function to increase amount ordered
     increase(id, am){
-        cart.order = cart.order.map(item => {
+        cart.order.forEach(item => {
             if (item.id === id) {
-                if (item.amount === undefined || item.amount === null || item.amount === ""){
-                    item.amount = 1;
-                }
                 let calc1 = parseInt(item.amount, 10),
                     calc2 = parseInt(am, 10);
-                item.amount =  calc1 + calc2;
-                // return item;
+
+                item.amount = calc1 + calc2;
             }
         });
+        // cart.order = cart.order.map(item => {
+        //     if (item.id === id) {
+        //         // if (item.amount === undefined || item.amount === null || item.amount === ""){
+        //         //     item.amount = 1;
+        //         // }
+                
+        //             calc3 = ;
+        //             console.log("calc1" + calc1);
+        //             console.log("calc2" + calc2);
+        //             console.log("calc3" + calc3);
+                
+        //         return item;
+        //     }
+        // });
         cart.sync();
     }
 }
