@@ -2,12 +2,12 @@
 const cart = {
     // unique key to identify the cart
     Key: "123456",
-    order: [{id:1}],
+    order: [],
     // function to start on page load that checks if a cart already exists
     init() {
         let existingContent = localStorage.getItem(cart.Key);
         if (existingContent) {
-            cart.order = JSON.parse(existing-content);
+            cart.order = JSON.parse(existingContent);
         } else {
             cart.sync();
         }
@@ -25,7 +25,7 @@ const cart = {
                 return true;
             }
         });
-        console.log(found + " " + found[0]);
+        console.log("find func " + found + " " + found[0]);
         // return found product
         if (found && found[0]){
             return found[0];
@@ -37,11 +37,12 @@ const cart = {
         if(cart.find(id)){
             cart.increase(id, addAmm);
         } else {
-            let arr = articles.filter(product => {
-                if (product.id === id) {
+            let arr = loadedProd.filter(product => {
+                if (product.id == id) {
                     return true;
                 }
             });
+            console.log("arr find " + arr);
             // check if product exists in db  add product to order array
             if (arr && arr[0]) {
                 let prod = {
@@ -60,7 +61,7 @@ const cart = {
     // function to increase amount ordered
     increase(id, am){
         cart.order = cart.order.map(item => {
-            if (item.id === id) {
+            if (item.id == id) {
                 item.amount += am;
                 return item;
             }
@@ -69,6 +70,57 @@ const cart = {
     }
 }
 
+<<<<<<< HEAD
+// known products array
+=======
+>>>>>>> a9be67b83cff2cf915e88c224a4d9510157f524c
+const loadedProd = [];
+
+// function to load known products into array, to check if product exists
+function load() {
+    let test = document.getElementsByClassName('article');
+    for (let i = 0; i < test.length; i++) {
+        console.log(test[i].dataset.price);
+        var name = test[i].dataset.name,
+            price = test[i].dataset.price,
+            id = test[i].dataset.id;
+        
+        loadedProd.push({
+            id:     id,
+            name:   name,
+            price:  price
+        });
+        
+    }
+    return loadedProd;
+}
+
+// function to add listeners to add to order buttons
+function listeners() {
+    let buttons = document.getElementsByName("orderBTN");
+    console.log(buttons);
+    buttons.forEach(BTN => {
+        let i = 0;
+        BTN.addEventListener('click', () => {
+            let qty = document.getElementById(buttons[i].value).value;
+            console.log(qty);
+            console.log("btn value " + BTN.value);
+            cart.add(BTN.value, qty);
+        });
+        ++i;
+    });
+    
+}
+// start all basic functions that need to run on page load
+document.addEventListener('DOMContentLoaded', () => {
+    cart.init();
+    listeners();
+    load();
+});
+<<<<<<< HEAD
+
+=======
+>>>>>>> a9be67b83cff2cf915e88c224a4d9510157f524c
 function totalPrice(){
     var articles = document.querySelectorAll(".article");
     var totalPriceCart=0;
