@@ -31,25 +31,23 @@ const cart = {
             return found[0];
         }
     },
-    add(id, addNum) {
+    // add product to cart, standard ammount is one, if other value is given that overrides 
+    add(id, addAmm=1) {
+        // check if product exists in db
         if(cart.find(id)){
-            cart.increase(id, addNum);
+            cart.increase(id, addAmm);
         } else {
-            // check if product exists in db
             let arr = articles.filter(product => {
                 if (product.id == id) {
                     return true;
                 }
             });
-            if (addNum == 0 || addNum == undefined) {
-                addNum = 1;
-            }
-            // if product exists in db  add product to order array
+            // check if product exists in db  add product to order array
             if (arr && arr[0]) {
                 let prod = {
                     id:     arr[0].id,
                     name:   arr[0].name,
-                    amount: addNum,
+                    amount: addAmm,
                     Price:  arr[0].price
                 };
                 cart.order.push(prod);
@@ -58,9 +56,18 @@ const cart = {
                 console.log("invalid product");
             }
         }
-    }
+    },
+    // function to increase ammount ordered
+    increase(id, am){
+        cart.order = cart.order.map(item =>{
+            if (item.id == id) {
+                item.amount += am;
+                return item;
+            }
+        });
+        cart.sync();
+    },
 }
-// array to collect items for shoppingcart
 
 // function to add items to shoppingcart array
 addItem = (name, price, amount) => {
