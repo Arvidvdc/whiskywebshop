@@ -4,11 +4,12 @@
 
 <!-- Headers for column -->
 <div class="row header">
+        <div class="col col-md-1"></div>
         <div class="col col-md-3">
-                &nbsp;
+                <strong>Product</strong>
         </div>
-        <div class="col col-md-3">
-                <strong>Product en prijs</strong>
+        <div class="col col-md-2">
+                <strong>Prijs</strong>
         </div>
         <div class="col col-md-3">
                 <strong>Aantal besteld</strong>
@@ -22,11 +23,13 @@
 <% order.forEach(article => { %>
         <div class="article" data-price="<%= article.price %>" data-amount="<%= article.amount %>" data-id="<%= article.id %>">
                 <div class="row">
-                        <div class="col col-md-3">
-                                <img src="<%= article.image %>" alt="" width="40px" height="60px">
+                        <div class="col col-md-1">
+                                <img class="cart-image" src="<%= article.image %>" alt="">
                         </div>
                         <div class="col col-md-3">
                                 <div><%= article.name %></div>
+                        </div>
+                        <div class="col col-md-2">
                                 <div>€ <%= article.price.toFixed(2).replace(".",",") %></div>
                         </div>
                         <div class="col col-md-3">
@@ -50,10 +53,9 @@
         </div>
 </div>
 
-<div class="d-flex justify-content-end">
-        <a href="/bestellen">
-                <button class="btn btn-primary">Afrekenen</button>
-        </a>
+<div class="row">
+        <div class="col col-md-9"></div>
+        <div class="col col-md-3 d-flex justify-content-end"><a href="/bestellen"><button class="btn btn-primary">Afrekenen</button></a></div>
 </div>
 
 <!-- Script lines -->

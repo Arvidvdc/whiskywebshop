@@ -14,3 +14,9 @@ body {
 #TotalAmount {
     font-weight: bold;
 }
+
+.cart-image {
+    width: 40px;
+    height: 60px;
+    margin: 5px 0;
+}
