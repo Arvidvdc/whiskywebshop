@@ -7,19 +7,6 @@
 
 <div id="articles" class="row" data-loaded="products">
     <% articles.forEach(article => { %>
-<<<<<<< HEAD
-        <div class="article col col-md-4" data-price="<%= article.price %>" data-name="<%= article.name %>" data-id="<%= article.id %>">
-            Naam: <label id="name" ><%= article.name %></label> <br>
-            Prijs: € <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label> <br>
-            Leeftijd: <%= article.age %> <br>
-            Distillerij: <%= article.distillery %> <br>
-            Pallet: <%= article.pallet %> <br>
-            Land van herkomst: <%= article.country %> <br>
-            Regio: <%= article.region %> <br>
-            Descriptie: <%= article.description %> <br>
-            <input type="number" id="<%= article.id %>" placeholder="0" min="0"> 
-            <button type="button" name="orderBTN" value="<%= article.id %>">bestellen</button>
-=======
         <div class="article col col-md-4" data-price="<%= article.price %>">
             <div class="thumbnail">
                 <img src="<%= article.image %>" alt="">
@@ -29,11 +16,10 @@
                         <span class="d-flex justify-content-end">€ <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label></span>
                         <%= article.description %> <br>
                         <input type="number" name="amount" placeholder="0" min="0"> 
-                        <button type="submit" name="order">bestellen</button>
+                        <button type="button" name="order">bestellen</button>
                     </form>
                 </div>
             </div>
->>>>>>> b2a4730e346b9aa6c3560bb7a976aadc4fe40fef
         </div>
     <% }); %>
 </div>
