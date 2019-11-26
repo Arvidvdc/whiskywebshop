@@ -10,6 +10,9 @@ const   indexRoutes           = require("./routes/index"),
         shoppingcartsRoutes   = require("./routes/shopping-cart"),
         orderRoutes           = require("./routes/order");
 
+// dotENV
+require('dotenv').config();
+
 // Express variables
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
