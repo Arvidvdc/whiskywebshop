@@ -1,4 +1,5 @@
-const Order = require("../models/order");
+const   Order =     require("../models/order"),
+        Article =   require("../models/article");
 
 // ORDER
 exports.order = (req, res) => {
@@ -11,11 +12,24 @@ exports.payment = (req, res) => {
 }
 
 exports.payment_post = (req, res) => {
-    // create order db entry
-        //include currentDate as orderedAt
+    // get count of orders
+    Order.estimatedDocumentCount().then((count) => {
+        newNr = count + 1;
+        console.log(newNr);
+    });
+    // get currentDate for creation time
+    let ts = Date.now();
+    let creationTime = new Date(ts);
+    console.log(creationTime);
+    // get the total amount from the db
 
+    // get the address
+    // let address = req.body.address;
+    // console.log(address);
+
+    // create order db entry
     // redirect to payment provider
-    res.send("order complete!");
+    res.redirect("/bestellen/bevestiging");
 }
 
 // CONFIRMATION
