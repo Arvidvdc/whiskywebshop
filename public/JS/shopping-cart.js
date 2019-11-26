@@ -47,7 +47,8 @@ const cart = {
                     id:     arr[0].id,
                     name:   arr[0].name,
                     amount: addAmm,
-                    Price:  arr[0].price
+                    price:  arr[0].price,
+                    image:  arr[0].image
                 };
                 cart.order.push(prod);
                 cart.sync();
@@ -66,20 +67,6 @@ const cart = {
                 item.amount = calc1 + calc2;
             }
         });
-        // cart.order = cart.order.map(item => {
-        //     if (item.id === id) {
-        //         // if (item.amount === undefined || item.amount === null || item.amount === ""){
-        //         //     item.amount = 1;
-        //         // }
-                
-        //             calc3 = ;
-        //             console.log("calc1" + calc1);
-        //             console.log("calc2" + calc2);
-        //             console.log("calc3" + calc3);
-                
-        //         return item;
-        //     }
-        // });
         cart.sync();
     }
 }
@@ -93,12 +80,14 @@ function load() {
     for (let i = 0; i < test.length; i++) {
         var name = test[i].dataset.name,
             price = test[i].dataset.price,
-            id = test[i].dataset.id;
-        
+            id = test[i].dataset.id,
+            image = test[i].dataset.image;
+        console.log(image);
         loadedProd.push({
             id:     id,
             name:   name,
-            price:  price
+            price:  price,
+            image:  image
         });
         
     }
@@ -125,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cart.init();
     listeners();
     load();
+    buildCart();
 });
 
 function totalPrice(){
@@ -135,4 +125,62 @@ function totalPrice(){
         totalPriceCart+=subtotal;
     }
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
+}
+
+function buildCart(){
+    let orderList = document.getElementById('orderList');
+    cart.order.forEach(showprod => {
+        console.log(showprod);
+        showprod.price = parseFloat(showprod.price);
+        console.log(showprod);
+
+        let articleDiv = document.createElement('div');
+        articleDiv.className = "article";
+        articleDiv.dataset.id = showprod.id;
+        articleDiv.dataset.amount = showprod.amount;
+
+            let divRow = document.createElement('div');
+            divRow.className = "row";
+
+                let divImgCol = document.createElement('div');
+                divImgCol.className = "col col-md-1";
+                    let img = document.createElement('img');
+                    img.className = "cart-image";
+                    img.src = showprod.image;
+                    divImgCol.appendChild(img);
+                divRow.appendChild(divImgCol);
+                
+                let divArtName = document.createElement('div');
+                divArtName.className = "col col-md-3";
+                    let artName = document.createElement('div');
+                    artName.textContent = showprod.name;
+                    divArtName.appendChild(artName);
+                divRow.appendChild(divArtName);
+
+                let divArtPrice = document.createElement('div');
+                divArtPrice.className = "col col-md-2";
+                    let artPrice = document.createElement('div');
+                    artPrice.textContent = "€ " + showprod.price.toFixed(2).replace(".",",");
+                    divArtPrice.appendChild(artPrice);
+                divRow.appendChild(divArtPrice);
+
+                let divArtAmount = document.createElement('div');
+                divArtAmount.className = "col col-md-3";
+                    let artAmount = document.createElement('div');
+                    artAmount.textContent = showprod.amount;
+                    divArtAmount.appendChild(artAmount);
+                divRow.appendChild(divArtAmount);
+
+                let divArtTotPr = document.createElement('div');
+                divArtTotPr.className = "col col-md-3";
+                    let artTotPr = document.createElement('div');
+                    artTotPr.textContent = "€ " + (showprod.price * showprod.amount).toFixed(2).toString(this).replace(".",",");
+                    divArtTotPr.appendChild(artTotPr);
+                divRow.appendChild(divArtTotPr);
+
+            articleDiv.appendChild(divRow);
+
+        orderList.appendChild(articleDiv);
+
+    });
 }

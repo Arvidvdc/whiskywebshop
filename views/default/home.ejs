@@ -11,7 +11,7 @@
 
 <div id="articles" class="row" data-loaded="products">
     <% articles.forEach(article => { %>
-        <div class="article col col-md-4" data-price="<%= article.price %>" data-Name="<%= article.name %>" data-Id="<%= article.id %>">
+        <div class="article col col-md-4" data-price="<%= article.price %>" data-Name="<%= article.name %>" data-Id="<%= article.id %>" data-image="<%= article.image %>">
             <div class="thumbnail">
                 <img src="<%= article.image %>" alt="">
                 <div class="caption">
