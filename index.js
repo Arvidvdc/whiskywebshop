@@ -39,4 +39,4 @@ app.use("/winkelwagen", shoppingcartsRoutes);
 app.use("/bestellen", orderRoutes);
 
 // listener
-app.listen(3000, ()=>console.log("Whisky Webshop started on port 3000"));
+app.listen(process.env.PORT, process.env.IP, ()=>console.log("Whisky Webshop started on port " + process.env.PORT));
