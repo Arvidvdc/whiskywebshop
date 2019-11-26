@@ -14,6 +14,7 @@ const   indexRoutes           = require("./routes/index"),
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json({ limit: "1mb" }));
 
 // Database connection
 mongoose.connect("mongodb://localhost:27017/whiskywebshop", { 

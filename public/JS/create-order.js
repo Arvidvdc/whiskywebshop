@@ -1,31 +1,28 @@
-
-
-function createOrder() {
-    var order = sessionStorage.getItem(address.key);
-    sendOrder(order);
-}
-
-function sendOrder(data) {
-    const XHR = new XMLHttpRequest();
-    const FD = new FormData();
-
-    // pushing data into FormData object
-    for(name in data) {
-        FD.append(name, data[name]);
-    }
-
-    // if succes
-    XHR.addEventListener('load', (event) => {
-        alert("Order created.");
+window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById("createOrderBtn").addEventListener('click', (event) => {
+        sendOrder();
+        event.preventDefault();
     });
+});
 
-    // if error
-    XHR.addEventListener('error', (event) => {
-        alert("something went wrong...");
-    });
+async function sendOrder() {
+    // get products and address from Storage
+    let order = [];
+    let addressData = JSON.parse(sessionStorage.getItem(address.key));
+    order.push(addressData);
+    let orderData = JSON.parse(localStorage.getItem(cart.Key));
+    order.push(orderData);
 
-    // setting up request
-    XHR.open('POST', 'http://localhost:3000/bestellen/betalen');
-
-    XHR.send(FD);
+    // fetch the data to the server
+    await fetch('http://localhost:3000/bestellen/betalen', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(order),
+        mode: "cors",
+    // redirect to the returned url
+    }).then((response => {
+        window.location.replace(response.url);
+    }));
 }
