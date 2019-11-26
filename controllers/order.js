@@ -27,9 +27,12 @@ exports.payment_post = (req, res) => {
     // let address = req.body.address;
     // console.log(address);
 
+    let testData = req.body.data;
+    console.log(req.body);
+
     // create order db entry
     // redirect to payment provider
-    res.redirect("/bestellen/bevestiging");
+    return res.redirect(303, "/bestellen/bevestiging");
 }
 
 // CONFIRMATION
