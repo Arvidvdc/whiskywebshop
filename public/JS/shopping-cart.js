@@ -115,24 +115,22 @@ document.addEventListener('DOMContentLoaded', () => {
     listeners();
     load();
     buildCart();
+    totalPrice();
 });
 
 function totalPrice(){
-    var articles = document.querySelectorAll(".article");
     var totalPriceCart=0;
-    for(let i=0; i<articles.length;i++){
-        let subtotal=articles[i].dataset.price * articles[i].dataset.amount;
-        totalPriceCart+=subtotal;
-    }
+    cart.order.forEach(ordprod => {
+        let subTotal = ordprod.price * ordprod.amount;
+        totalPriceCart += subTotal;
+    });
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
 }
 
 function buildCart(){
     let orderList = document.getElementById('orderList');
     cart.order.forEach(showprod => {
-        console.log(showprod);
         showprod.price = parseFloat(showprod.price);
-        console.log(showprod);
 
         let articleDiv = document.createElement('div');
         articleDiv.className = "article";
