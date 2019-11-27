@@ -1,0 +1,27 @@
+{
+  "name": "whiskywebshop",
+  "version": "1.0.0",
+  "description": "This whisky webshop is part of the codeGorilla bootcamp \"web developer\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arvidvdc/whiskywebshop.git"
+  },
+  "author": "Arvid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arvidvdc/whiskywebshop/issues"
+  },
+  "homepage": "https://github.com/Arvidvdc/whiskywebshop#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^2.7.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.11"
+  }
+}

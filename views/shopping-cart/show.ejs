@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+<h1> Winkelmand</h1>
+
+<!-- Headers for column -->
+<div class="row header">
+        <div class="col col-md-1"></div>
+        <div class="col col-md-3">
+                <strong>Product</strong>
+        </div>
+        <div class="col col-md-2">
+                <strong>Prijs</strong>
+        </div>
+        <div class="col col-md-3">
+                <strong>Aantal besteld</strong>
+        </div>
+        <div class="col col-md-3">
+                <strong>Subtotaal</strong>
+        </div>
+</div>
+
+<!-- Display order items -->
+<div id="orderList">
+</div>
+
+<!-- total shopping-cart -->
+<div class="row">
+        <div class="col col-md-6"></div>
+        <div class="col col-md-3 d-flex justify-content-end">
+                <strong>Totaal: </strong>
+        </div>
+        <div id="TotalAmount" class="col col-md-3">
+                
+        </div>
+</div>
+
+<div class="row">
+        <div class="col col-md-9"></div>
+        <div class="col col-md-3 d-flex justify-content-end"><a href="/bestellen"><button class="btn btn-primary">Afrekenen</button></a></div>
+</div>
+
+<% include ../partials/footer %>

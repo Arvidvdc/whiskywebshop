@@ -1,0 +1,50 @@
+
+<% include ../partials/header %>
+
+<div>
+    <h1>Voeg Product Toe</h1>
+    <form action="/producten/nieuw" method="POST">
+        <div>
+            <label>Naam:</label>
+            <input name="product[name]" type="text" placeholder="Whisky" required>
+        </div>
+        <div>
+            <label>Prijs:</label>
+            <input name="product[price]" type="number" placeholder="€ 0,00" min="0" step="0.1" required>
+        </div>
+        <div>
+            <label>Leeftijd:</label>
+            <input name="product[age]" type="number" min="3" placeholder="3">
+        </div>
+        <div>
+            <label>Distillerij</label>
+            <input name="product[distillery]" type="text" placeholder="Distillerij">
+        </div>
+        <div>
+            <label>Pallet:</label>
+            <input name="product[pallet]" type="text" placeholder="Pallet">
+        </div>
+        <div>
+            <label>Land van herkomst:</label>
+            <input name="product[country]" type="text" placeholder="Land">
+        </div>
+        <div>
+            <label>Regio:</label>
+            <input name="product[region]" type="text" placeholder="Regio">
+        </div>
+        <div>
+            <label>Afbeelding:</label>
+            <input name="product[image]" type="text" placeholder="URL naar de afbeelding">
+        </div>
+        <div>
+            <label>Descriptie:</label>
+            <textarea name="product[description]" placeholder="Over het product..."></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Voeg toe">
+        </div>
+    </form>
+</div>
+
+
+<% include ../partials/footer %>
