@@ -1,5 +1,5 @@
-const   Order =     require("../models/order"),
-        Article =   require("../models/article");
+const Order = require("../models/order"),
+    Article = require("../models/article");
 
 // ORDER
 exports.order = (req, res) => {
@@ -13,27 +13,62 @@ exports.payment = (req, res) => {
 
 exports.payment_post = (req, res) => {
     // get count of orders
-    Order.estimatedDocumentCount().then((count) => {
-        newNr = count + 1;
-        console.log(newNr);
-    });
+
     // get currentDate for creation time
     let ts = Date.now();
     let creationTime = new Date(ts);
-    console.log(creationTime);
-    // get the total amount from the db
 
-    // get the address
-    // let address = req.body.address;
-    // console.log(address);
+    // assign body.data to data
+    const data = req.body;
 
-    let testData = req.body.data;
-    console.log(req.body);
+    //get the total amount from the database
+    var totalAmount = 0;
+    // DOESN"T WORK YET
+    async function addToAmount() {
+        return new Promise((resolve, reject) => {
+            data[1].products.forEach((item) => {
+                let id = item.id;
+                let amount = item.amount;
+                // console.log(item);
+                Article.findById(id, (err, foundItem) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        let price = (Number(foundItem.price) * Number(amount));
+                        totalAmount = totalAmount + price;
+                        resolve(totalAmount);
+                    }
+                });
+            });
+        });
+    }
+    addToAmount().then(() => console.log(totalAmount));
 
     // create order db entry
+    // Order.create()
+
     // redirect to payment provider
     return res.redirect(303, "/bestellen/bevestiging");
 }
+
+// function addToAmount() {
+//     return new Promise((resolve, reject) => {
+//         data[1].products.forEach((item) => {
+//             let id = item.id;
+//             let amount = item.amount;
+//             // console.log(item);
+//             Article.findById(id, (err, foundItem) => {
+//                 if (err) {
+//                     console.log(err);
+//                 } else {
+//                     totalAmount += (foundItem.price * amount);
+//                 }
+//             });
+//         });
+//     });
+// }
+
+
 
 // CONFIRMATION
 exports.confirmation = (req, res) => {
