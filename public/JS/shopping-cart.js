@@ -82,7 +82,6 @@ function load() {
             price = test[i].dataset.price,
             id = test[i].dataset.id,
             image = test[i].dataset.image;
-        console.log(image);
         loadedProd.push({
             id:     id,
             name:   name,
