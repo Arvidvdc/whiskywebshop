@@ -20,33 +20,8 @@
 </div>
 
 <!-- Display order items -->
-<% 
-async orderList = () => {
-        await list = cart.order;
-        return list;
-}
-orderList.forEach(article => { 
-        %>
-        <div class="article" data-price="<%= article.price %>" data-amount="<%= article.amount %>" data-id="<%= article.id %>">
-                <div class="row">
-                        <div class="col col-md-1">
-                                <img class="cart-image" src="<%= article.image %>" alt="">
-                        </div>
-                        <div class="col col-md-3">
-                                <div><%= article.name %></div>
-                        </div>
-                        <div class="col col-md-2">
-                                <div>€ <%= article.price.toFixed(2).replace(".",",") %></div>
-                        </div>
-                        <div class="col col-md-3">
-                                <input type="number" readonly class="form-control-plaintext" name="aantal" min="1" step="1" value="<%= article.amount %>">
-                        </div>
-                        <div class="col col-md-3">
-                                € <%= (article.price * article.amount).toFixed(2).replace(".",",") %>
-                        </div>
-                </div>
-        </div>
-<% }); %>
+<div id="orderList">
+</div>
 
 <!-- total shopping-cart -->
 <div class="row">
@@ -63,9 +38,5 @@ orderList.forEach(article => {
         <div class="col col-md-9"></div>
         <div class="col col-md-3 d-flex justify-content-end"><a href="/bestellen"><button class="btn btn-primary">Afrekenen</button></a></div>
 </div>
-
-<!-- Script lines -->
-<script src="/JS/shopping-cart.js"></script>
-<script>totalPrice();</script>
 
 <% include ../partials/footer %>
