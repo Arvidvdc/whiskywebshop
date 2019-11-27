@@ -48,6 +48,7 @@ async function sendOrder() {
         mode: "cors",
         // redirect to the returned url
     }).then((response => {
-        window.location.replace(response.url);
+        // window.location.replace(response.url);
+        window.location.replace("google.nl");
     }));
 }

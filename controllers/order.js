@@ -27,14 +27,14 @@ exports.payment_post = (req, res) => {
     async function addToAmount() {
         return new Promise((resolve, reject) => {
             data[1].products.forEach((item) => {
-                let id = item.id;
-                let amount = item.amount;
+                // let id = item.id;    B&A
+                // let amount = item.amount;    B&A
                 // console.log(item);
-                Article.findById(id, (err, foundItem) => {
+                Article.findById(item.id, (err, foundItem) => {
                     if (err) {
-                        console.log(err);
+                        console.log("Error on article.findbyId " +err);
                     } else {
-                        let price = (Number(foundItem.price) * Number(amount));
+                        let price = (Number(foundItem.price) * Number(item.amount));
                         totalAmount = totalAmount + price;
                         resolve(totalAmount);
                     }
