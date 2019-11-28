@@ -100,7 +100,9 @@ function listeners() {
         buttons[i].addEventListener('click', () => {
             var btnid = buttons[i].value
             let qty = document.getElementById(btnid).value;
-            if (qty === ""){
+            if(qty==0){
+                return 0;
+            } else if(qty === ""){
                 qty = 1;
             }
             cart.add(btnid, qty);
