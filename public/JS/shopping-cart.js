@@ -95,7 +95,7 @@ function load() {
 
 // function to add listeners to add to order buttons
 function listeners() {
-    let buttons = document.getElementsByName("orderBTN");
+    let buttons = document.getElementsByName("AddToBTN");
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', () => {
             var btnid = buttons[i].value;
@@ -126,7 +126,7 @@ function totalPrice(){
         totalPriceCart += subTotal;
     });
     if(totalPriceCart<0) {
-        document.getElementById("orderBTN").disabled=true;
+        document.getElementById("AddToBTN").disabled=true;
     }
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
 }

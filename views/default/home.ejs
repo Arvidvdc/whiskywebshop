@@ -19,7 +19,7 @@
                     <span class="d-flex justify-content-end">€ <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label></span>
                     <%= article.description %> <br>
                     <input type="number" id="<%= article.id %>" placeholder="0" min="1" oninput="this.value = Math.abs(this.value)"> 
-                    <button type="button" name="orderBTN" value="<%= article.id %>">toevoegen</button>
+                    <button type="button" name="AddToBTN" value="<%= article.id %>">toevoegen</button>
                 </div>
             </div>
         </div>
