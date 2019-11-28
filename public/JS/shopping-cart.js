@@ -126,7 +126,7 @@ function totalPrice(){
         totalPriceCart += subTotal;
     });
     if(totalPriceCart<0) {
-        document.getElementById("toUserData").disabled=true;
+        document.getElementById("orderBTN").disabled=true;
     }
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
 }
