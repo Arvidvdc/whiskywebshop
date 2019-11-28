@@ -63,9 +63,9 @@ const cart = {
             if (item.id === id) {
                 let calc1 = parseInt(item.amount, 10),
                     calc2 = parseInt(am, 10);
-
                 item.amount = calc1 + calc2;
             }
+            document.getElementById(id).value=item.amount;
         });
         cart.sync();
     }
@@ -98,11 +98,10 @@ function listeners() {
     let buttons = document.getElementsByName("orderBTN");
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', () => {
-            var btnid = buttons[i].value
+            var btnid = buttons[i].value;
             let qty = document.getElementById(btnid).value;
-            if(qty==0){
-                return 0;
-            } else if(qty === ""){
+            if(qty==0 || qty === ""){
+                document.getElementById(btnid).value=1;
                 qty = 1;
             }
             cart.add(btnid, qty);
@@ -110,6 +109,7 @@ function listeners() {
     }
     
 }
+
 // start all basic functions that need to run on page load
 document.addEventListener('DOMContentLoaded', () => {
     cart.init();
@@ -125,6 +125,9 @@ function totalPrice(){
         let subTotal = ordprod.price * ordprod.amount;
         totalPriceCart += subTotal;
     });
+    if(totalPriceCart<0) {
+        document.getElementById("toUserData").setAttribute("disabled");
+    }
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
 }
 
