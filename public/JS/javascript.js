@@ -32,7 +32,6 @@ function sortByPrice() {
                 return bVal - aVal
             }
         });
-        console.log("i'm here");
         if (sortOrder === "desc") {
             sortOrder = "asc";
         } else {
