@@ -30,7 +30,7 @@ mongoose.connect(process.env.DB_URL, {
     );
 
 // Seeden database with default data
-// seedDB();
+seedDB();
 
 // Routes
 app.use(indexRoutes); 
