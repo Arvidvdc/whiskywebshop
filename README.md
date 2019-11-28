@@ -5,6 +5,8 @@ We are doing this project to learn to do a project together following the Scrum 
 
 This webshop is especially designed as a online platform where whisky-dealers can meet their customers, promote and sell their whiskeys.
 
+Visit the webshop demo [here](https://shielded-headland-22223.herokuapp.com/).
+
 ### The team
 The team responsible for this whisky webshop got the following members...
 * __Edwin__ Boersema (developer) -https://github.com/EdwinBoersema-,
@@ -23,7 +25,8 @@ The team responsible for this whisky webshop got the following members...
 * When adding new products, more inputs are required.
 * Displayed names of buttons are more logic.
 * A disclaimer has been added to prevent disappointment for customers outside CodeGorilla.
-* Spellcheck on readme.md
+* Spellcheck on readme.md.
+* Link to the webshop demo added to readme.md.
 
 ##### 20 november 2019
 * Folder structure build.
