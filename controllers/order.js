@@ -44,31 +44,9 @@ exports.payment_post = (req, res) => {
     }
     addToAmount().then(() => console.log(totalAmount));
 
-    // create order db entry
-    // Order.create()
-
     // redirect to payment provider
     return res.redirect(303, "/bestellen/bevestiging");
 }
-
-// function addToAmount() {
-//     return new Promise((resolve, reject) => {
-//         data[1].products.forEach((item) => {
-//             let id = item.id;
-//             let amount = item.amount;
-//             // console.log(item);
-//             Article.findById(id, (err, foundItem) => {
-//                 if (err) {
-//                     console.log(err);
-//                 } else {
-//                     totalAmount += (foundItem.price * amount);
-//                 }
-//             });
-//         });
-//     });
-// }
-
-
 
 // CONFIRMATION
 exports.confirmation = (req, res) => {
