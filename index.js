@@ -10,6 +10,9 @@ const   indexRoutes           = require("./routes/index"),
         shoppingcartsRoutes   = require("./routes/shopping-cart"),
         orderRoutes           = require("./routes/order");
 
+// dotENV
+require('dotenv').config();
+
 // Express variables
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -17,7 +20,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json({ limit: "1mb" }));
 
 // Database connection
-mongoose.connect("mongodb://localhost:27017/whiskywebshop", { 
+mongoose.connect(process.env.DB_URL, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
     useFindAndModify: false}).then(
@@ -36,4 +39,4 @@ app.use("/winkelwagen", shoppingcartsRoutes);
 app.use("/bestellen", orderRoutes);
 
 // listener
-app.listen(3000, ()=>console.log("Whisky Webshop started on port 3000"));
+app.listen(process.env.PORT, process.env.IP, ()=>console.log("Whisky Webshop started on port " + process.env.PORT));

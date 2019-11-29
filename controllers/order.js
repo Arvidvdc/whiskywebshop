@@ -25,6 +25,7 @@ exports.payment_post = (req, res) => {
     //get the total amount from the database
     var totalAmount = 0;
     // DOESN"T WORK YET
+<<<<<<< HEAD
     // async function addToAmount() {
     //     return new Promise((resolve, reject) => {
     //         data[1].products.forEach((item) => {
@@ -44,6 +45,27 @@ exports.payment_post = (req, res) => {
     //     });
     // }
     // addToAmount().then(() => console.log(totalAmount));
+=======
+    async function addToAmount() {
+        return new Promise((resolve, reject) => {
+            data[1].products.forEach((item) => {
+                // let id = item.id;    B&A
+                // let amount = item.amount;    B&A
+                // console.log(item);
+                Article.findById(item.id, (err, foundItem) => {
+                    if (err) {
+                        console.log("Error on article.findbyId " +err);
+                    } else {
+                        let price = (Number(foundItem.price) * Number(item.amount));
+                        totalAmount = totalAmount + price;
+                        resolve(totalAmount);
+                    }
+                });
+            });
+        });
+    }
+    addToAmount().then(() => console.log(totalAmount));
+>>>>>>> caeed6803727a7b1af9bfcda9545002715eda166
 
     // create order db entry
     // Order.create()

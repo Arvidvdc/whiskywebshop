@@ -8,12 +8,18 @@ This webshop is escpecially designed as a online platform where whisky-dealers c
 ### The team
 The team responsible for this whisky webshop got the following members...
 * __Edwin__ Boersema (developer) -https://github.com/EdwinBoersema-,
-* __Arvid__ van de Crommert (developer),
+* __Arvid__ van de Crommert (developer) -https://github.com/Arvidvdc-,
 * __Mike__ Jongsma (product owner/coach) en
 * __Bennie__ Koops (developer) -https://github.com/BennieKoops-.
 
 ### New features
-* Folder structure build
+##### 27 november 2019
+* Layout improved to basic bootstrap.
+* Adding products to shopping cart.
+* View products in shopping cart.
+
+##### 20 november 2019
+* Folder structure build.
 * Routers added
 	* __route "/"__ shows currently textual fictif whiskeys.
 	* __route "/products/new"__ for adding a new product.

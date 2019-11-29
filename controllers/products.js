@@ -1,6 +1,5 @@
 const   Article = require("../models/article");    
 
-//=====
 // NEW
 exports.new = (req, res) => {
     res.render("./products/new");
@@ -8,13 +7,11 @@ exports.new = (req, res) => {
 
 exports.new_post = (req, res) => {
     let product = req.body.product;
-    console.log("Created: " +req.body.product.name);
     Article.create(product, (err, newProduct) => {
         if (err) {
-            console.log(err);
+            console.log("Error in 'Add new product': " +err);
             res.redirect("/producten/nieuw");
         } else {
-            console.log("created product: " + req.body.product.name);
             res.redirect("/");
         }
     });
