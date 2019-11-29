@@ -63,9 +63,9 @@ const cart = {
             if (item.id === id) {
                 let calc1 = parseInt(item.amount, 10),
                     calc2 = parseInt(am, 10);
-
                 item.amount = calc1 + calc2;
             }
+            document.getElementById(id).value=item.amount;
         });
         cart.sync();
     }
@@ -95,12 +95,13 @@ function load() {
 
 // function to add listeners to add to order buttons
 function listeners() {
-    let buttons = document.getElementsByName("orderBTN");
+    let buttons = document.getElementsByName("AddToBTN");
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', () => {
-            var btnid = buttons[i].value
+            var btnid = buttons[i].value;
             let qty = document.getElementById(btnid).value;
-            if (qty === ""){
+            if(qty==0 || qty === ""){
+                document.getElementById(btnid).value=1;
                 qty = 1;
             }
             cart.add(btnid, qty);
@@ -108,6 +109,7 @@ function listeners() {
     }
     
 }
+
 // start all basic functions that need to run on page load
 document.addEventListener('DOMContentLoaded', () => {
     cart.init();
@@ -123,6 +125,9 @@ function totalPrice(){
         let subTotal = ordprod.price * ordprod.amount;
         totalPriceCart += subTotal;
     });
+    if(totalPriceCart<0) {
+        document.getElementById("AddToBTN").disabled=true;
+    }
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
 }
 

@@ -1,3 +1,6 @@
+// var for to define sorting order
+var sortOrder = "asc";
+
 // defining var article for later use
 var articles = "";
 
@@ -20,12 +23,20 @@ function handleSorting() {
 function sortByPrice() {
     $("#sortPrice").on("click", (event) => {
         let sortedA = articles;
-
         sortedA.sort((a, b) => {
-            let aVal = parseInt(a.getAttribute("data-price"));
-            let bVal = parseInt(b.getAttribute("data-price"));
-            return aVal - bVal;
+            let aVal = parseFloat(a.getAttribute("data-price")).toFixed(2);
+            let bVal = parseFloat(b.getAttribute("data-price")).toFixed(2);
+            if (sortOrder === "asc") {
+                return aVal - bVal;
+            } else {
+                return bVal - aVal
+            }
         });
+        if (sortOrder === "desc") {
+            sortOrder = "asc";
+        } else {
+            sortOrder = "desc";
+        }
         $("#articles").append(sortedA);
         event.preventDefault
     });
