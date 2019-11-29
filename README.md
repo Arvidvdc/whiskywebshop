@@ -14,6 +14,10 @@ The team responsible for this whisky webshop got the following members...
 * __Bennie__ Koops (developer) -https://github.com/BennieKoops-.
 
 ### New features
+##### 29 november 2019
+* Add delivery address.
+* Payment method via invoice.
+
 ##### 27 november 2019
 * Layout improved to basic bootstrap.
 * Adding products to shopping cart.
