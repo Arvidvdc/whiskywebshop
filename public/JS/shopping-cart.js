@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     totalPrice();
 });
 
+// function that calculates and creates the total price shown on shopping cart page
 function totalPrice(){
     var totalPriceCart=0;
     cart.order.forEach(ordprod => {
@@ -131,6 +132,7 @@ function totalPrice(){
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
 }
 
+// function that builds the shopping cart based on and with data from localstorage key
 function buildCart(){
     let orderList = document.getElementById('orderList');
     cart.order.forEach(showprod => {
