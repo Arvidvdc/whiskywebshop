@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
-    orderNr: Number,
     amount: Number,
     products: [{}],
     address: {
