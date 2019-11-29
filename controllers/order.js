@@ -20,9 +20,6 @@ exports.payment_post = (req, res) => {
 
     // assign body.data to data
     const orderData = req.body;
-    // console.log(orderData);
-
-    console.log(orderData[0]);
 
     //get the total amount
     let totalAmount = 0;
@@ -77,8 +74,6 @@ exports.payment_post = (req, res) => {
             console.log(err);
             return res.send(err);
         } else {
-            console.log("Success!");
-            console.log(newOrder);
             // redirect to confirmation page
             return res.redirect(303, "/bestellen/bevestiging/" + newOrder._id);
         }
