@@ -68,6 +68,7 @@ exports.payment_post = (req, res) => {
         orderedAt: creationTime
     }
 
+<<<<<<< HEAD
     // create order db entry
     Order.create(order, (err, newOrder) => {
         if (err) {
@@ -78,6 +79,10 @@ exports.payment_post = (req, res) => {
             return res.redirect(303, "/bestellen/bevestiging/" + newOrder._id);
         }
     });
+=======
+    // redirect to payment provider
+    return res.redirect(303, "/bestellen/bevestiging");
+>>>>>>> bugfix
 }
 
 // CONFIRMATION
