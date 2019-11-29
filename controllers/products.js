@@ -14,7 +14,6 @@ exports.new_post = (req, res) => {
             console.log(err);
             res.redirect("/producten/nieuw");
         } else {
-            console.log("created product: " + req.body.product.name);
             res.redirect("/");
         }
     });
