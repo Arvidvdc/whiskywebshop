@@ -53,3 +53,11 @@ body {
     height: 60px;
     margin: 5px 0;
 }
+
+#disclaimer {
+    font-size: small;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    border: 1px solid black;
+}
