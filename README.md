@@ -18,11 +18,7 @@ The team responsible for this whisky webshop got the following members...
 * Add delivery address.
 * Payment method via invoice.
 
-##### 27 november 2019
-* Layout improved to basic bootstrap.
-* Adding products to shopping cart.
-* View products in shopping cart.
-###### Bug Fixes to release 27 november 2019
+###### Bug Fixes
 * It is no longer possible to add a negative number of products to the shopping-cart.
 * Sort-function now also works with cents.
 * Button "bestellen" (order) on homepage changed to button "toevoegen".
@@ -31,6 +27,11 @@ The team responsible for this whisky webshop got the following members...
 * A disclaimer has been added to prevent disappointment for customers outside CodeGorilla.
 * Spellcheck on readme.md.
 * Link to the webshop demo added to readme.md.
+
+##### 27 november 2019
+* Layout improved to basic bootstrap.
+* Adding products to shopping cart.
+* View products in shopping cart.
 
 ##### 20 november 2019
 * Folder structure build.
