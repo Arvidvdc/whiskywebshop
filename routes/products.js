@@ -6,6 +6,7 @@ const   express             = require("express"),
 // NEW ROUTE
 router.get("/nieuw", product_controller.new);
 
+// POST ROUTE
 router.post("/nieuw", product_controller.new_post);
 
 // Export Router
