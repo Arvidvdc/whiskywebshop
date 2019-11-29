@@ -1,7 +1,35 @@
 <% include ../partials/header %>
 
-<div class="container justify-content-center">
-    <h1>Bestelling succesvol!</h1>
+<div class="row justify-content-center">
+    <h1 class="col col-md-4">
+        Order besteld!
+    </h1>
+</div>
+<div class="row justify-content-center">
+    <div class="col col-md-2">
+        Factuurnr:
+    </div>
+    <div class="col col-md-2 justify-self-end">
+        <%= order._id %>
+    </div>
+</div>
+<% order.articles.forEach((item) => { %>
+<div class="row justify-content-center">
+    <div class="col col-md-2">
+        <%= item.name %>
+    </div>
+    <div class="col col-md-1">
+        <%= item.amount %>
+    </div>
+</div>
+<% }); %>
+<div class="row justify-content-center">
+    <div class="col col-md-2">
+        Totaal:
+    </div>
+    <div class="col col-md-1">
+        <%= order.amount %>
+    </div>
 </div>
 
 <% include ../partials/footer %>

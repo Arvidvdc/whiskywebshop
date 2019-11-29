@@ -1,10 +1,26 @@
 <% include ../partials/header %>
 
-<h1>payment page</h1>
+<h1>Betalen</h1>
 
-<button id="createOrderBtn" class="btn btn-primary">Test</button>
+<!-- Display order items -->
+<div id="orderList">
+</div>
+
+<!-- total shopping-cart -->
+<div class="row">
+    <div class="col col-md-6"></div>
+    <div class="col col-md-3 d-flex justify-content-end">
+        <strong>Totaal: </strong>
+    </div>
+    <div id="TotalAmount" class="col col-md-3">
+
+    </div>
+</div>
+
+<button id="createOrderBtn" class="btn btn-primary">Betaal via factuur</button>
 <!-- redirect to payment provider -->
 <!-- redirect to confirmation page after payment -->
+<script src="/JS/shopping-cart.js"></script>
 <script src="/JS/paymentaddress.js"></script>
 <script src="/JS/create-order.js"></script>
 <% include ../partials/footer %>
