@@ -2,7 +2,14 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
     amount: Number,
-    products: [{}],
+    articles: [{
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Article"
+        },
+        name: String,
+        amount: Number
+    }],
     address: {
         company: String,
         firstname: String,
