@@ -19,59 +19,81 @@ exports.payment_post = (req, res) => {
     let creationTime = new Date(ts);
 
     // assign body.data to data
-    const data = req.body;
-    console.log(data);
+    const orderData = req.body;
+    // console.log(orderData);
 
-    //get the total amount from the database
-    var totalAmount = 0;
-    // DOESN"T WORK YET
-    async function addToAmount() {
-        return new Promise((resolve, reject) => {
-            data[1].products.forEach((item) => {
-                // let id = item.id;    B&A
-                // let amount = item.amount;    B&A
-                // console.log(item);
-                Article.findById(item.id, (err, foundItem) => {
-                    if (err) {
-                        console.log("Error on article.findbyId " +err);
-                    } else {
-                        let price = (Number(foundItem.price) * Number(item.amount));
-                        totalAmount = totalAmount + price;
-                        resolve(totalAmount);
-                    }
-                });
-            });
-        });
+    console.log(orderData[0]);
+
+    //get the total amount
+    let totalAmount = 0;
+    orderData[1].articles.forEach((item) => {
+        let price = Number(item.amount) * Number(item.price);
+        totalAmount = totalAmount + price
+    });
+    roundedAmount = totalAmount.toFixed(2);
+
+    // create article array
+    articles = [];
+    orderData[1].articles.forEach((item) => {
+        let article = {
+            _id: item.id,
+            name: item.name,
+            amount: item.amount
+        }
+        articles.push(article);
+    });
+    // Async function to get the amount from the database, doesn't work yet
+    // async function addToAmount() {
+    //     return new Promise((resolve, reject) => {
+    //         data[1].products.forEach((item) => {
+    //             // let id = item.id;    B&A
+    //             // let amount = item.amount;    B&A
+    //             // console.log(item);
+    //             Article.findById(item.id, (err, foundItem) => {
+    //                 if (err) {
+    //                     console.log("Error on article.findbyId " +err);
+    //                 } else {
+    //                     let price = (Number(foundItem.price) * Number(item.amount));
+    //                     totalAmount = totalAmount + price;
+    //                     resolve(totalAmount);
+    //                 }
+    //             });
+    //         });
+    //     });
+    // }
+    // addToAmount().then(() => console.log(totalAmount));
+
+    // create order variable
+    let order = {
+        amount: roundedAmount,
+        articles: articles,
+        address: orderData[0].address,
+        orderedAt: creationTime
     }
-    addToAmount().then(() => console.log(totalAmount));
 
     // create order db entry
-    // Order.create()
-
-    // redirect to payment provider
-    return res.redirect(303, "/bestellen/bevestiging");
+    Order.create(order, (err, newOrder) => {
+        if (err) {
+            console.log(err);
+            return res.send(err);
+        } else {
+            console.log("Success!");
+            console.log(newOrder);
+            // redirect to confirmation page
+            return res.redirect(303, "/bestellen/bevestiging/" + newOrder._id);
+        }
+    });
 }
-
-// function addToAmount() {
-//     return new Promise((resolve, reject) => {
-//         data[1].products.forEach((item) => {
-//             let id = item.id;
-//             let amount = item.amount;
-//             // console.log(item);
-//             Article.findById(id, (err, foundItem) => {
-//                 if (err) {
-//                     console.log(err);
-//                 } else {
-//                     totalAmount += (foundItem.price * amount);
-//                 }
-//             });
-//         });
-//     });
-// }
-
-
 
 // CONFIRMATION
 exports.confirmation = (req, res) => {
-    res.render("./order/confirmation");
+    Order.findById(req.params.id, (err, foundOrder) => {
+        if (err) {
+            console.log(err);
+            res.redirect("/bestellen/betalen");
+        } else {
+            res.render("./order/confirmation", { order: foundOrder});
+        }
+    });
+    // res.render("./order/confirmation");
 }

@@ -15,7 +15,7 @@ router.get("/betalen", order_controller.payment);
 router.post("/betalen", order_controller.payment_post);
 
 // CONFIRMATION ROUTE
-router.get("/bevestiging", order_controller.confirmation);
+router.get("/bevestiging/:id", order_controller.confirmation);
 
 // Export router
 module.exports = router;
