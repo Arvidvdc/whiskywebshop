@@ -40,7 +40,7 @@ const address = {
 function addAddress() {
     document.getElementById("addressBtn").addEventListener('click', (event) => {
         address.getNewAddress();
-        window.location.replace("http://localhost:3000/bestellen/betalen");
+        window.location.replace("/bestellen/betalen");
         event.preventDefault();
     });
 }
