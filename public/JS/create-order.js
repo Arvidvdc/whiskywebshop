@@ -18,11 +18,7 @@ async function sendOrder() {
     let url = window.location.href;
 
     // fetch the data to the server
-<<<<<<< HEAD
     await fetch(url, {
-=======
-    await fetch(process.env.URL_FETCH_ORDER, {
->>>>>>> 6a1c773a4622b18b74007c8c39c6deb5444ae1c9
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
