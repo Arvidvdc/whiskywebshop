@@ -15,8 +15,10 @@ async function sendOrder() {
     articles.articles = articleData;
     order.push(articles);
 
+    let url = window.location.href;
+
     // fetch the data to the server
-    await fetch('http://localhost:3000/bestellen/betalen', {
+    await fetch(url, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
