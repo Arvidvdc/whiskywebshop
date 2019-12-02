@@ -48,8 +48,16 @@ exports.payment_post = (req, res) => {
         orderedAt: creationTime
     }
 
-    // redirect to payment provider
-    return res.redirect(303, "/bestellen/bevestiging");
+    // create order db entry
+    Order.create(order, (err, newOrder) => {
+        if (err) {
+            console.log(err);
+            return res.send(err);
+        } else {
+            // redirect to confirmation page
+            return res.redirect(303, "/bestellen/bevestiging/" + newOrder._id);
+        }
+    });
 }
 
 // CONFIRMATION
