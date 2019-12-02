@@ -16,7 +16,7 @@ async function sendOrder() {
     order.push(articles);
 
     // fetch the data to the server
-    await fetch('https://shielded-headland-22223.herokuapp.com/bestellen/betalen', {
+    await fetch(process.env.URL_FETCH_ORDER, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
