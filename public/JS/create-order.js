@@ -16,7 +16,7 @@ async function sendOrder() {
     order.push(articles);
 
     // fetch the data to the server
-    await fetch('http://localhost:3000/bestellen/betalen', {
+    await fetch(process.env.URL_FETCH_ORDER, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
