@@ -64,8 +64,9 @@ const cart = {
                 let calc1 = parseInt(item.amount, 10),
                     calc2 = parseInt(am, 10);
                 item.amount = calc1 + calc2;
+                document.getElementById(id).value=item.amount;
+                console.log(id);
             }
-            document.getElementById(id).value=item.amount;
         });
         cart.sync();
     }
@@ -78,7 +79,7 @@ const loadedProd = [];
 function load() {
     let test = document.getElementsByClassName('article');
     for (let i = 0; i < test.length; i++) {
-        var name = test[i].dataset.name,
+        let name = test[i].dataset.name,
             price = test[i].dataset.price,
             id = test[i].dataset.id,
             image = test[i].dataset.image;
@@ -93,21 +94,21 @@ function load() {
     return loadedProd;
 }
 
+function Bennie() {
+    let qty = document.getElementById(this.value).value;
+    if(qty==0 || qty === ""){
+        document.getElementById(this.value).value=1;
+        qty = 1;
+    }
+    cart.add(this.value, qty);
+}
+
 // function to add listeners to add to order buttons
 function listeners() {
     let buttons = document.getElementsByName("AddToBTN");
     for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', () => {
-            var btnid = buttons[i].value;
-            let qty = document.getElementById(btnid).value;
-            if(qty==0 || qty === ""){
-                document.getElementById(btnid).value=1;
-                qty = 1;
-            }
-            cart.add(btnid, qty);
-        });
+        buttons[i].addEventListener('click', Bennie);
     }
-    
 }
 
 // start all basic functions that need to run on page load

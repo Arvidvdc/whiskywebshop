@@ -5,29 +5,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// const testarticles = [
-//     {
-//         id: "5ddbdb00acfc8f4f145a138e",
-//         amount: 2
-//     },
-//     {
-//         id: "5ddbdb00acfc8f4f145a138f",
-//         amount: 3
-//     },
-//     {
-//         id: "5ddbdb00acfc8f4f145a1390",
-//         amount: 1
-//     },
-//     {
-//         id: "5ddbdb00acfc8f4f145a1391",
-//         amount: 2
-//     },
-//     {
-//         id: "5ddbdb00acfc8f4f145a1392",
-//         amount: 5
-//     }
-// ]
-
 async function sendOrder() {
     // get products and address from Storage
     let order = [];
@@ -38,8 +15,10 @@ async function sendOrder() {
     articles.articles = articleData;
     order.push(articles);
 
+    let url = window.location.href;
+
     // fetch the data to the server
-    await fetch('http://localhost:3000/bestellen/betalen', {
+    await fetch(url, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
