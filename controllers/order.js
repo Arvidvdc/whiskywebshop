@@ -56,8 +56,7 @@ exports.payment_post = (req, res) => {
             console.log(newOrder);
             let paymentAmount = '' + newOrder.amount;
             let desc = 'whiskeywebsite order ' + newOrder._id;
-            let herokuUrl = 'https://shielded-headland-22223.herokuapp.com';
-            let website = herokuUrl;
+            let website = 'https://gentle-wave-79051.herokuapp.com/';
                 // create mollie payment here 
                 (async () => {
                     try {
@@ -67,8 +66,8 @@ exports.payment_post = (req, res) => {
                                 value: paymentAmount,
                             },
                             description: desc,
-                            redirectUrl: website +'/bevestiging/' + newOrder._id,
-                            webhookUrl: website + '/bestellen/webhook',
+                            redirectUrl: website +'bevestiging/' + newOrder._id,
+                            webhookUrl: website + 'bestellen/webhook/',
                             metadata: {
                                 order_id: newOrder._id,
                             },
