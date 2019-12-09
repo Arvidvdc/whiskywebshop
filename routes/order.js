@@ -14,6 +14,8 @@ router.get("/betalen", order_controller.payment);
 
 router.post("/betalen", order_controller.payment_post);
 
+router.post("/webhook", order_controller.webhook);
+
 // CONFIRMATION ROUTE
 router.get("/bevestiging/:id", order_controller.confirmation);
 

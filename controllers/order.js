@@ -1,5 +1,7 @@
 const Order = require("../models/order"),
-    Article = require("../models/article");
+    Article = require("../models/article"),
+    { createMollieClient } = require('@mollie/api-client'),
+    mollieClient = createMollieClient({ apiKey: MOLLIE_KEY });
 
 // ORDER
 exports.order = (req, res) => {
@@ -12,7 +14,7 @@ exports.payment = (req, res) => {
 }
 
 exports.payment_post = (req, res) => {
-        // assign body.data to data
+    // assign body.data to data
     const orderData = req.body;
 
     // get currentDate for creation time
@@ -63,6 +65,21 @@ exports.payment_post = (req, res) => {
     });
 }
 
+// webhook
+exports.webhook = (req, res) => {
+    res.sendStatus(200);
+    let data = req.body
+        (async () => {
+            try {
+                const payment = await mollieClient.payments.get(data.id);
+
+                console.log(payment);
+            } catch (error) {
+                console.warn(error);
+            }
+        });
+}
+
 // CONFIRMATION
 exports.confirmation = (req, res) => {
     Order.findById(req.params.id, (err, foundOrder) => {
@@ -70,7 +87,7 @@ exports.confirmation = (req, res) => {
             console.log(err);
             res.redirect("/bestellen/betalen");
         } else {
-            res.render("./order/confirmation", { order: foundOrder});
+            res.render("./order/confirmation", { order: foundOrder });
         }
     });
 }
