@@ -1,7 +1,7 @@
 const Order = require("../models/order"),
     Article = require("../models/article"),
     { createMollieClient } = require('@mollie/api-client'),
-    mollieClient = createMollieClient({ apiKey: MOLLIE_KEY });
+    mollieClient = createMollieClient({ apiKey: "test_2V6BuFzz33xffmPwW2Hpvx76sm5Eep" });
 
 // ORDER
 exports.order = (req, res) => {
@@ -54,13 +54,33 @@ exports.payment_post = (req, res) => {
             console.log(err);
             return res.send(err);
         } else {
+            console.log(newOrder);
+            let paymentAmount = toString(newOrder.amount);
+            let desc = 'whiskeywebsite order' + newOrder._id;
+            let website = 'https://shielded-headland-22223.herokuapp.com'
+                // create mollie payment here 
+                (async () => {
+                    try {
+                        const payment = await mollieClient.payments.create({
+                            amount: {
+                                currency: 'EUR',
+                                value: paymentAmount,
+                            },
+                            description: desc,
+                            redirectUrl: website +'/confirmation',
+                            webhookUrl: website + '/webhook',
+                            metadata: {
+                                order_id: newOrder._id,
+                            },
+                            method: "ideal"
+                        });
 
-            // create mollie payment here 
-
-
-
-            // redirect to confirmation page
-            return res.redirect(303, "/bestellen/bevestiging/" + newOrder._id);
+                        console.log(payment);
+                        return res.redirect(303, payment.getCheckoutUrl());
+                    } catch (error) {
+                        console.warn(error);
+                    }
+                })();
         }
     });
 }
