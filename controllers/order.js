@@ -1,7 +1,7 @@
 const Order = require("../models/order"),
     Article = require("../models/article"),
     { createMollieClient } = require('@mollie/api-client'),
-    mollieClient = createMollieClient({ apiKey: "test_2V6BuFzz33xffmPwW2Hpvx76sm5Eep" });
+    mollieClient = createMollieClient({ apiKey: "test_hUgDRy7uGxV5tRrF8pcFxB5TREA2ed" });
 
 // ORDER
 exports.order = (req, res) => {
@@ -27,7 +27,7 @@ exports.payment_post = (req, res) => {
         let price = Number(item.amount) * Number(item.price);
         totalAmount = totalAmount + price
     });
-    roundedAmount = totalAmount.toFixed(2);
+    let roundedAmount = totalAmount.toFixed(2);
 
     // create article array
     articles = [];
@@ -47,7 +47,6 @@ exports.payment_post = (req, res) => {
         address: orderData[0].address,
         orderedAt: creationTime
     }
-
     // create order db entry
     Order.create(order, (err, newOrder) => {
         if (err) {
@@ -55,9 +54,10 @@ exports.payment_post = (req, res) => {
             return res.send(err);
         } else {
             console.log(newOrder);
-            let paymentAmount = toString(newOrder.amount);
-            let desc = 'whiskeywebsite order' + newOrder._id;
-            let website = 'https://shielded-headland-22223.herokuapp.com'
+            let paymentAmount = '' + newOrder.amount;
+            let desc = 'whiskeywebsite order ' + newOrder._id;
+            let herokuUrl = 'https://shielded-headland-22223.herokuapp.com';
+            let website = herokuUrl;
                 // create mollie payment here 
                 (async () => {
                     try {
@@ -67,16 +67,17 @@ exports.payment_post = (req, res) => {
                                 value: paymentAmount,
                             },
                             description: desc,
-                            redirectUrl: website +'/confirmation',
-                            webhookUrl: website + '/webhook',
+                            redirectUrl: website +'/bevestiging/' + newOrder._id,
+                            webhookUrl: website + '/bestellen/webhook',
                             metadata: {
                                 order_id: newOrder._id,
                             },
                             method: "ideal"
                         });
 
-                        console.log(payment);
-                        return res.redirect(303, payment.getCheckoutUrl());
+                        // console.log(payment);
+                        let redUrl = payment.getCheckoutUrl();
+                        return res.redirect(303, redUrl);
                     } catch (error) {
                         console.warn(error);
                     }
