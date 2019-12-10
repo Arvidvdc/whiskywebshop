@@ -46,6 +46,11 @@ mongoose.connect(process.env.DB_URL, {
 // Seeden database with default data
 // seedDB();
 
+app.use((req,res,next)=>{
+  res.locals.currentUser=req.user;
+  next();
+});
+
 // Routes
 app.use(indexRoutes); 
 app.use("/producten", productsRoutes);

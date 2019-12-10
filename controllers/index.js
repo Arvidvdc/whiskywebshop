@@ -33,6 +33,9 @@ exports.login = (req,res) => {
     res.render("./default/login");
 }
 
-exports.login_post = (req,res) => {
-    res.send("PostLogin");
-}
+exports.login_post =  passport.authenticate("local", {
+    successRedirect: "/", 
+    failureRedirect: "/registreren"
+}), (req,res)=> {
+       
+};
