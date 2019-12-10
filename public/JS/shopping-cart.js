@@ -94,6 +94,15 @@ function load() {
     return loadedProd;
 }
 
+// function to add listeners to add to order buttons
+function listenToAddBTN() {
+    let buttons = document.getElementsByName("AddToBTN");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', addToProdAmm);
+    }
+}
+
+// function that activates when add btn is clicked and adds to ammount
 function addToProdAmm() {
     let qty = document.getElementById(this.value).value;
     if(qty==0 || qty === ""){
@@ -103,12 +112,16 @@ function addToProdAmm() {
     cart.add(this.value, qty);
 }
 
-// function to add listeners to add to order buttons
-function listenToAddBTN() {
-    let buttons = document.getElementsByName("AddToBTN");
+// function to add listeners to remove product buttons
+function listenToRemBTN() {
+    let buttons = document.getElementsByName("RemBTN");
     for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', addToProdAmm);
+        buttons[i].addEventListener('click', remFromCart);
     }
+}
+
+function remFromCart() {
+    console.log(this.value);
 }
 
 // start all basic functions that need to run on page load
@@ -118,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     load();
     buildCart();
     totalPrice();
+    listenToRemBTN();
 });
 
 // function that calculates and creates the total price shown on shopping cart page
@@ -188,6 +202,7 @@ function buildCart(){
                     let remProdCart = document.createElement('button');
                     remProdCart.type = "button";
                     remProdCart.className = "btn btn-danger";
+                    remProdCart.name = "RemBTN"
                     remProdCart.value = showprod.id;
                         let remIco = document.createElement('i');
                         remIco.className = "far fa-trash-alt";
