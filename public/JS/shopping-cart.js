@@ -94,7 +94,7 @@ function load() {
     return loadedProd;
 }
 
-function Bennie() {
+function addToProdAmm() {
     let qty = document.getElementById(this.value).value;
     if(qty==0 || qty === ""){
         document.getElementById(this.value).value=1;
@@ -104,17 +104,17 @@ function Bennie() {
 }
 
 // function to add listeners to add to order buttons
-function listeners() {
+function listenToAddBTN() {
     let buttons = document.getElementsByName("AddToBTN");
     for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', Bennie);
+        buttons[i].addEventListener('click', addToProdAmm);
     }
 }
 
 // start all basic functions that need to run on page load
 document.addEventListener('DOMContentLoaded', () => {
     cart.init();
-    listeners();
+    listenToAddBTN();
     load();
     buildCart();
     totalPrice();
