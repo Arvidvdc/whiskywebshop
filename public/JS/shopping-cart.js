@@ -65,7 +65,15 @@ const cart = {
                     calc2 = parseInt(am, 10);
                 item.amount = calc1 + calc2;
                 document.getElementById(id).value=item.amount;
-                console.log(id);
+            }
+        });
+        cart.sync();
+    },
+    // function to remove product from local storage cart.order based on id
+    remove(id) {
+        cart.order = cart.order.filter(prod => {
+            if (prod.id !== id) {
+                return true;
             }
         });
         cart.sync();
@@ -94,7 +102,16 @@ function load() {
     return loadedProd;
 }
 
-function Bennie() {
+// function to add listeners to add to order buttons
+function listenToAddBTN() {
+    let buttons = document.getElementsByName("AddToBTN");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', addToProdAmm);
+    }
+}
+
+// function that activates when add btn is clicked and adds to ammount
+function addToProdAmm() {
     let qty = document.getElementById(this.value).value;
     if(qty==0 || qty === ""){
         document.getElementById(this.value).value=1;
@@ -103,21 +120,30 @@ function Bennie() {
     cart.add(this.value, qty);
 }
 
-// function to add listeners to add to order buttons
-function listeners() {
-    let buttons = document.getElementsByName("AddToBTN");
+// function to add listeners to remove product buttons
+function listenToRemBTN() {
+    let buttons = document.getElementsByName("RemBTN");
     for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', Bennie);
+        buttons[i].addEventListener('click', remFromCart);
     }
+}
+
+// function to remove items from cart
+function remFromCart() {
+    let remProdId = this.value;
+    let toRemProd = document.getElementById(remProdId);
+    toRemProd.remove();
+    cart.remove(remProdId);
 }
 
 // start all basic functions that need to run on page load
 document.addEventListener('DOMContentLoaded', () => {
     cart.init();
-    listeners();
+    listenToAddBTN();
     load();
     buildCart();
     totalPrice();
+    listenToRemBTN();
 });
 
 // function that calculates and creates the total price shown on shopping cart page
@@ -141,6 +167,7 @@ function buildCart(){
 
         let articleDiv = document.createElement('div');
         articleDiv.className = "article";
+        articleDiv.id = showprod.id;
         articleDiv.dataset.id = showprod.id;
         articleDiv.dataset.amount = showprod.amount;
 
@@ -177,12 +204,24 @@ function buildCart(){
                 divRow.appendChild(divArtAmount);
 
                 let divArtTotPr = document.createElement('div');
-                divArtTotPr.className = "col col-md-3";
+                divArtTotPr.className = "col col-md-2";
                     let artTotPr = document.createElement('div');
                     artTotPr.textContent = "€ " + (showprod.price * showprod.amount).toFixed(2).toString(this).replace(".",",");
                     divArtTotPr.appendChild(artTotPr);
                 divRow.appendChild(divArtTotPr);
 
+                let divRemProdCart = document.createElement('div');
+                divRemProdCart.className = "col col-md-1";
+                    let remProdCart = document.createElement('button');
+                    remProdCart.type = "button";
+                    remProdCart.className = "btn btn-danger";
+                    remProdCart.name = "RemBTN"
+                    remProdCart.value = showprod.id;
+                        let remIco = document.createElement('i');
+                        remIco.className = "far fa-trash-alt";
+                        remProdCart.appendChild(remIco);
+                    divRemProdCart.appendChild(remProdCart);
+                divRow.appendChild(divRemProdCart);
             articleDiv.appendChild(divRow);
 
         orderList.appendChild(articleDiv);
