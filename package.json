@@ -11,7 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/Arvidvdc/whiskywebshop.git"
   },
-  "author": "Arvid",
+  "author": "Arvid van de crommert <arvidvdc@gmail.com>",
+  "contributors": [
+    "Bennie Koops <bennie.koops@gmail.com>",
+    "Edwin Boersema <edwinboersema@gmail.com>"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Arvidvdc/whiskywebshop/issues"
