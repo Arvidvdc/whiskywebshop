@@ -65,7 +65,6 @@ const cart = {
                     calc2 = parseInt(am, 10);
                 item.amount = calc1 + calc2;
                 document.getElementById(id).value=item.amount;
-                console.log(id);
             }
         });
         cart.sync();
