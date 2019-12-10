@@ -2,7 +2,10 @@ const   express               = require("express"),
         app                   = express(),
         mongoose              = require("mongoose"),
         bodyParser            = require("body-parser"), 
-        seedDB                = require("./seeds");
+        seedDB                = require("./seeds"),
+        User                  = require("./models/user"),
+        passport              = require("passport"),
+        LocalStrategy         = require("passport-local");
 
 const   indexRoutes           = require("./routes/index"),
         productsRoutes        = require("./routes/products"),
@@ -17,6 +20,18 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json({ limit: "1mb" }));
+
+// Passport Configuration
+app.use(require("express-session")({
+  secret: "Beard-Squad Development",
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Database connection
 mongoose.connect(process.env.DB_URL, { 

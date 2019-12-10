@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+<h1>Registreren</h1>
+<form action="/registreren" method="POST">
+    <div class="row">
+        <div class="col">
+            <label>Gebruikersnaam</label>
+        </div>
+        <div class="col">
+            <input name="username" type="text" placeholder="Vul uw gewenste gebruikersnaam in." required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Wachtwoord</label>
+        </div>
+        <div class="col">
+            <input name="password" type="password" placeholder="Geef een wachtwoord op." required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>emailadres</label>
+        </div>
+        <div class="col">
+            <input name="email" type="email" placeholder="Vul uw emailadres in." required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="submit" value="Registreren">
+        </div>
+    </div>
+</form>
+
+
+<% include ../partials/footer %>

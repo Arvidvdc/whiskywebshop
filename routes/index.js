@@ -6,5 +6,10 @@ const   express             = require("express"),
 // DEFAULT ROUTE
 router.get("/", index_controller.default);
 
+// Register routes
+router.get("/registreren", index_controller.register);
+
+router.post("/registreren", index_controller.register_post);
+
 // Export Router
 module.exports = router;
