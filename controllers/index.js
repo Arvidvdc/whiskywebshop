@@ -14,7 +14,7 @@ exports.default = (req,res)=>{
 }
 
 exports.register = (req,res) => {
-    res.render("./default/register.ejs", {page: 'registreren'});
+    res.render("./default/register", {page: 'registreren'});
 }
 
 exports.register_post = (req,res) => {
@@ -27,4 +27,12 @@ exports.register_post = (req,res) => {
             res.redirect("/");
         });
     });
+}
+
+exports.login = (req,res) => {
+    res.render("./default/login");
+}
+
+exports.login_post = (req,res) => {
+    res.send("PostLogin");
 }

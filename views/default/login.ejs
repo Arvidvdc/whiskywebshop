@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+<h1>Login</h1>
+<form action="/login" method="post">
+    <div class="row">
+        <div class="col">
+            <label>Inlognaam:</label>
+        </div>
+        <div class="col">
+            <input type="text" name="username"  placeholder="Gebruikersnaam" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Wachtwoord:</label>
+        </div>
+        <div class="col">
+            <input type="password" name="password"  placeholder="Wachtwoord" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="submit" value="Inloggen">
+        </div>
+    </div>
+</form>
+
+<% include ../partials/footer %>

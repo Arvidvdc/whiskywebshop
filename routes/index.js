@@ -11,5 +11,10 @@ router.get("/registreren", index_controller.register);
 
 router.post("/registreren", index_controller.register_post);
 
+// Login routes
+router.get("/login", index_controller.login);
+
+router.post("/login", index_controller.login_post);
+
 // Export Router
 module.exports = router;
