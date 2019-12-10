@@ -177,12 +177,23 @@ function buildCart(){
                 divRow.appendChild(divArtAmount);
 
                 let divArtTotPr = document.createElement('div');
-                divArtTotPr.className = "col col-md-3";
+                divArtTotPr.className = "col col-md-2";
                     let artTotPr = document.createElement('div');
                     artTotPr.textContent = "€ " + (showprod.price * showprod.amount).toFixed(2).toString(this).replace(".",",");
                     divArtTotPr.appendChild(artTotPr);
                 divRow.appendChild(divArtTotPr);
 
+                let divRemProdCart = document.createElement('div');
+                divRemProdCart.className = "col col-md-1";
+                    let remProdCart = document.createElement('button');
+                    remProdCart.type = "button";
+                    remProdCart.className = "btn btn-danger";
+                    remProdCart.value = showprod.id;
+                        let remIco = document.createElement('i');
+                        remIco.className = "far fa-trash-alt";
+                        remProdCart.appendChild(remIco);
+                    divRemProdCart.appendChild(remProdCart);
+                divRow.appendChild(divRemProdCart);
             articleDiv.appendChild(divRow);
 
         orderList.appendChild(articleDiv);
