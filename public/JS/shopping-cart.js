@@ -120,8 +120,10 @@ function listenToRemBTN() {
     }
 }
 
+// function to remove items from cart
 function remFromCart() {
-    console.log(this.value);
+    let toRemProd = document.getElementById(this.value);
+    toRemProd.remove();
 }
 
 // start all basic functions that need to run on page load
@@ -155,6 +157,7 @@ function buildCart(){
 
         let articleDiv = document.createElement('div');
         articleDiv.className = "article";
+        articleDiv.id = showprod.id;
         articleDiv.dataset.id = showprod.id;
         articleDiv.dataset.amount = showprod.amount;
 
