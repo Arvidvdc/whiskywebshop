@@ -69,6 +69,15 @@ const cart = {
             }
         });
         cart.sync();
+    },
+    // function to remove product from local storage cart.order based on id
+    remove(id) {
+        cart.order = cart.order.filter(prod => {
+            if (prod.id !== id) {
+                return true;
+            }
+        });
+        cart.sync();
     }
 }
 
@@ -122,8 +131,10 @@ function listenToRemBTN() {
 
 // function to remove items from cart
 function remFromCart() {
-    let toRemProd = document.getElementById(this.value);
+    let remProdId = this.value;
+    let toRemProd = document.getElementById(remProdId);
     toRemProd.remove();
+    cart.remove(remProdId);
 }
 
 // start all basic functions that need to run on page load
