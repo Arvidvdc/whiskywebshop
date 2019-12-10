@@ -21,7 +21,6 @@ exports.register_post = (req,res) => {
     let newUser = new User({username: req.body.username, email: req.body.email, role: 'user'});
     User.register(newUser, req.body.password , (err, user)=>{
         if(err) {
-            console.log("Register error: " + err);
             res.redirect("/registreren");
         }
         passport.authenticate("local")(req,res, function(){
