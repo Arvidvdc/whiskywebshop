@@ -30,7 +30,7 @@ exports.register_post = (req,res) => {
     });
 }
 
-// Login routses
+// Login routes
 exports.login = (req,res) => {
     res.render("./default/login");
 }
@@ -40,4 +40,10 @@ exports.login_post =  passport.authenticate("local", {
     failureRedirect: "/registreren"
 }), (req,res)=> {
        
-};
+}
+
+// Logout route
+exports.logout = (req,res) => {
+    req.logout();
+    res.redirect("/");
+}
