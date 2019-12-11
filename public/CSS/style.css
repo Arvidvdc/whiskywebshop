@@ -62,3 +62,14 @@ body {
     width: 100%;
     border: 1px solid black;
 }
+
+/* Animation for shoppingcart blink */
+@keyframes blink{
+    50% {
+        opacity: 0;
+    }
+}
+
+.blink {
+    animation: blink 0.5s linear infinite ;
+}

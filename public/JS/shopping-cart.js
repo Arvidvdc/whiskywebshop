@@ -112,12 +112,18 @@ function listenToAddBTN() {
 
 // function that activates when add btn is clicked and adds to ammount
 function addToProdAmm() {
-    let qty = document.getElementById(this.value).value;
+    let qty = document.getElementById(this.value).value,
+        icon = document.getElementById('cartIcon');
     if(qty==0 || qty === ""){
         document.getElementById(this.value).value=1;
         qty = 1;
     }
     cart.add(this.value, qty);
+    icon.classList.add('blink');
+    setTimeout(() =>
+        icon.classList.remove('blink'), 1000
+    );
+
 }
 
 // function to add listeners to remove product buttons
