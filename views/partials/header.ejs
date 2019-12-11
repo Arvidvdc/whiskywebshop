@@ -37,6 +37,7 @@
                 <span class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a class="nav-link" href="/login">Inloggen</a></span>
                 <span class="nav-item <%= typeof page !== 'undefined' && page === 'registreren' ? 'active' : '' %>"><a class="nav-link" href="/registreren">Registreren</a></span>
             <% } else { %>
+                <span class="nav-item"><%= currentUser.username %> </span>
                 <span class="nav-item <%= typeof page !== 'undefined' && page === 'profiel' ? 'active' : '' %>"><a class="nav-link" href="/profiel">Profiel</a></span>
                 <span class="nav-item <%= typeof page !== 'undefined' && page === 'loguit' ? 'active' : '' %>"><a class="nav-link" href="/logouit">Uitloggen</a></span>
             <% } %>
