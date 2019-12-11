@@ -43,6 +43,14 @@ body {
     background: #161616
 }
 
+/* Line like the one from example site */
+.siteLine {
+    content: "";
+    background: #161616;
+    height: 6px;
+    margin: 5px auto 5px auto;
+}
+
 /* Shopping-cart items */
 #TotalAmount {
     font-weight: bold;
