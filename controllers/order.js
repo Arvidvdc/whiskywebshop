@@ -9,7 +9,7 @@ exports.order = (req, res) => {
 }
 
 exports.order_post = (req, res) => {
-// assign body.data to data
+    // assign body.data to data
     const orderData = req.body;
 
     // get currentDate for creation time
@@ -57,11 +57,46 @@ exports.order_post = (req, res) => {
 
 // PAYMENT
 exports.payment = (req, res) => {
-    res.render("./order/payment", { orderId: req.params.id});
+    res.render("./order/payment", { orderId: req.params.id });
 }
 
 exports.payment_post = (req, res) => {
-    res.send("hi");
+    let orderId = req.params.id;
+    // res.send("posted to " + req.params.id);
+    Order.findById(orderId, (err, foundOrder) => {
+        if (err) {
+            console.log(err);
+            return res.redirect("/bestellen");
+        } else {
+            let orderAmount = '' + foundOrder.amount;
+            let desc = "Ordernr: " + orderId;
+            let siteUrl = "herokuApp";
+            let redirUrl = siteUrl + "bestellen/bevestiging/" + orderId;
+            let webhook = siteUrl + "/bestellen/webhook";
+            (async () => {
+                try {
+                    const payment = await mollieClient.payments.create({
+                        amount: {
+                            currency: 'EUR',
+                            value: orderAmount, // You must send the correct number of decimals, thus we enforce the use of strings
+                        },
+                        description: desc,
+                        redirectUrl: redirUrl,
+                        webhookUrl: webhook,
+                        metadata: {
+                            order_id: orderId,
+                        },
+                    });
+
+                    console.log(payment);
+                    // redirecting customer to mollie payment
+                    res.redirect(303, payment.getCheckoutUrl());
+                } catch (error) {
+                    console.warn(error);
+                }
+            })();
+        }
+    })
 }
 
 // webhook
@@ -70,7 +105,7 @@ exports.webhook = (req, res) => {
     let data = req.body
         (async () => {
             try {
-                const payment = await mollieClient.payments.get(data.id);
+                let payment = await mollieClient.payments.get(data.id);
 
                 console.log(payment);
             } catch (error) {
