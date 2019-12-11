@@ -9,7 +9,7 @@ const   express = require("express"),
 // ORDER ROUTE
 router.get("/", order_controller.order);
 
-router.get("/", order_controller.order_post);
+router.post("/", order_controller.order_post);
 
 // PAYMENT ROUTE
 router.get("/betalen/:id", order_controller.payment);

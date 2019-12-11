@@ -48,9 +48,9 @@ exports.order_post = (req, res) => {
             console.log(err);
             return res.send(err);
         } else {
-            // console.log(newOrder);
+            console.log(newOrder);
             // redirect to payment overview page
-            res.redirect("/bestellen/betalen/" + newOrder._id);
+            res.redirect(303, "/bestellen/betalen/" + newOrder._id);
         }
     });
 }
