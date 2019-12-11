@@ -119,7 +119,6 @@ function addToProdAmm() {
         qty = 1;
     }
     cart.add(this.value, qty);
-    console.log(icon);
     icon.classList.add('blink');
     setTimeout(() =>
         icon.classList.remove('blink'), 1000
