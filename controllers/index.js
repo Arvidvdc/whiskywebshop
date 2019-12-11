@@ -2,7 +2,7 @@ const   Article     = require("../models/article"),
         passport    = require("passport"),
         User        = require("../models/user");
 
-// DEFAULT
+// Default route
 exports.default = (req,res)=>{
     Article.find({}, (err,foundArticles) => {
         if(err) {
@@ -13,6 +13,7 @@ exports.default = (req,res)=>{
     });
 }
 
+// Register routes
 exports.register = (req,res) => {
     res.render("./default/register", {page: 'registreren'});
 }
@@ -29,6 +30,7 @@ exports.register_post = (req,res) => {
     });
 }
 
+// Login routses
 exports.login = (req,res) => {
     res.render("./default/login");
 }
