@@ -26,9 +26,4 @@ async function sendOrder() {
         body: JSON.stringify(order),
         mode: "cors",
     });
-            // redirect to the returned url
-    // .then((response => {
-    //     console.log(response);
-    //     window.location.replace(response.url);
-    // }));
 }

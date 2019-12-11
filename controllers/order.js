@@ -8,13 +8,8 @@ exports.order = (req, res) => {
     res.render("./order/order");
 }
 
-// PAYMENT
-exports.payment = (req, res) => {
-    res.render("./order/payment");
-}
-
-exports.payment_post = (req, res) => {
-    // assign body.data to data
+exports.order_post = (req, res) => {
+// assign body.data to data
     const orderData = req.body;
 
     // get currentDate for creation time
@@ -53,36 +48,20 @@ exports.payment_post = (req, res) => {
             console.log(err);
             return res.send(err);
         } else {
-            console.log(newOrder);
-            let paymentAmount = '' + newOrder.amount;
-            let desc = 'whiskeywebsite order ' + newOrder._id;
-            let website = 'https://gentle-wave-79051.herokuapp.com/';
-                // create mollie payment here 
-                (async () => {
-                    try {
-                        const payment = await mollieClient.payments.create({
-                            amount: {
-                                currency: 'EUR',
-                                value: paymentAmount,
-                            },
-                            description: desc,
-                            redirectUrl: website +'bevestiging/' + newOrder._id,
-                            webhookUrl: website + 'bestellen/webhook/',
-                            metadata: {
-                                order_id: newOrder._id,
-                            },
-                            method: "ideal"
-                        });
-
-                        // console.log(payment);
-                        let redUrl = payment.getCheckoutUrl();
-                        return res.redirect(303, redUrl);
-                    } catch (error) {
-                        console.warn(error);
-                    }
-                })();
+            // console.log(newOrder);
+            // redirect to payment overview page
+            res.redirect("/bestellen/betalen/" + newOrder._id);
         }
     });
+}
+
+// PAYMENT
+exports.payment = (req, res) => {
+    res.render("./order/payment", { orderId: req.params.id});
+}
+
+exports.payment_post = (req, res) => {
+    res.send("hi");
 }
 
 // webhook
