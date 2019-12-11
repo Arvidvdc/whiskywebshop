@@ -53,6 +53,16 @@ exports.profile_edit = (req,res) => {
     });
 }
 
+exports.profile_update = (req,res) => {
+    User.findByIdAndUpdate(req.user._id, req.body.updateUser,  (err)=>{
+        if(err) {
+            console.log("Error update user ", err);
+        } else {
+            res.redirect("/");
+        };
+    });
+}
+
 // Logout controller
 exports.logout = (req,res) => {
     req.logout();

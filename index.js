@@ -5,7 +5,8 @@ const   express               = require("express"),
         seedDB                = require("./seeds"),
         User                  = require("./models/user"),
         passport              = require("passport"),
-        LocalStrategy         = require("passport-local");
+        LocalStrategy         = require("passport-local"),
+        methodOverride        = require("method-override"); 
 
 const   indexRoutes           = require("./routes/index"),
         productsRoutes        = require("./routes/products"),
@@ -18,6 +19,7 @@ require('dotenv').config();
 // Express variables
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json({ limit: "1mb" }));
 

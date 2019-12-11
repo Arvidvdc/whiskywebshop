@@ -20,6 +20,8 @@ router.post("/login", index_controller.login_post);
 // Profile routes
 router.get("/profiel", middleware.isLoggedIn,  index_controller.profile_edit);
 
+router.put("/profiel", middleware.isLoggedIn,  index_controller.profile_update);
+
 // Logout route
 router.get("/loguit", index_controller.logout);
 
