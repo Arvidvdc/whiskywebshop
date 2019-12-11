@@ -2,7 +2,7 @@ const   Article     = require("../models/article"),
         passport    = require("passport"),
         User        = require("../models/user");
 
-// Default route
+// Default controller
 exports.default = (req,res)=>{
     Article.find({}, (err,foundArticles) => {
         if(err) {
@@ -13,7 +13,7 @@ exports.default = (req,res)=>{
     });
 }
 
-// Register routes
+// Register controllers
 exports.register = (req,res) => {
     res.render("./default/register", {page: 'registreren'});
 }
@@ -30,7 +30,7 @@ exports.register_post = (req,res) => {
     });
 }
 
-// Login routes
+// Login controllers
 exports.login = (req,res) => {
     res.render("./default/login");
 }
@@ -42,7 +42,18 @@ exports.login_post =  passport.authenticate("local", {
        
 }
 
-// Logout route
+// Profile controllers
+exports.profile_edit = (req,res) => {
+    User.findById(req.user._id, (err,user)=>{
+        if(err){
+            console.log("user.findById: " + err);
+        } else {
+            res.render("./default/profiel", {page: 'profiel', user: user});
+        };
+    });
+}
+
+// Logout controller
 exports.logout = (req,res) => {
     req.logout();
     res.redirect("/");
