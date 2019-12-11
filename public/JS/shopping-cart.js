@@ -122,7 +122,7 @@ function addToProdAmm() {
     console.log(icon);
     icon.classList.add('blink');
     setTimeout(() =>
-        icon.classList.remove('blink'), 10000
+        icon.classList.remove('blink'), 1000
     );
 
 }
