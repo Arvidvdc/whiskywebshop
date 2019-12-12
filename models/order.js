@@ -21,6 +21,7 @@ const orderSchema = new mongoose.Schema({
         city: String 
     },
     status: { type: String, default: "open"},
+    paymentId: String,
     orderedAt: Date
 });
 
