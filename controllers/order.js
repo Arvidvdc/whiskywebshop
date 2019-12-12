@@ -9,7 +9,7 @@ exports.order = (req, res) => {
 }
 
 exports.order_post = (req, res) => {
-    // assign body.data to data
+    // assign req.body to orderData
     const orderData = req.body;
 
     // get currentDate for creation time
@@ -23,6 +23,7 @@ exports.order_post = (req, res) => {
         totalAmount = totalAmount + price
     });
     let roundedAmount = totalAmount.toFixed(2);
+    let stringAmount = roundedAmount + "";
 
     // create article array
     articles = [];
@@ -37,7 +38,7 @@ exports.order_post = (req, res) => {
 
     // create order variable
     let order = {
-        amount: roundedAmount,
+        amount: stringAmount,
         articles: articles,
         address: orderData[0].address,
         orderedAt: creationTime
@@ -48,7 +49,6 @@ exports.order_post = (req, res) => {
             console.log(err);
             return res.send(err);
         } else {
-            console.log(newOrder);
             // redirect to payment overview page
             res.redirect(303, "/bestellen/betalen/" + newOrder._id);
         }
@@ -68,11 +68,13 @@ exports.payment_post = (req, res) => {
             console.log(err);
             return res.redirect("/bestellen");
         } else {
-            let orderAmount = '' + foundOrder.amount;
+            let orderAmount = foundOrder.amount;
             let desc = "Ordernr: " + orderId;
-            let siteUrl = "herokuApp";
+            let siteUrl = "https://0ae8e041.ngrok.io/";
             let redirUrl = siteUrl + "bestellen/bevestiging/" + orderId;
-            let webhook = siteUrl + "/bestellen/webhook";
+            let webhook = siteUrl + "bestellen/webhook";
+            // res.send(orderId);
+            // create mollie payment
             (async () => {
                 try {
                     const payment = await mollieClient.payments.create({
@@ -88,7 +90,6 @@ exports.payment_post = (req, res) => {
                         },
                     });
 
-                    console.log(payment);
                     // redirecting customer to mollie payment
                     res.redirect(303, payment.getCheckoutUrl());
                 } catch (error) {
@@ -101,16 +102,20 @@ exports.payment_post = (req, res) => {
 
 // webhook
 exports.webhook = (req, res) => {
-    res.sendStatus(200);
-    let data = req.body
-        (async () => {
-            try {
-                let payment = await mollieClient.payments.get(data.id);
 
-                console.log(payment);
-            } catch (error) {
-                console.warn(error);
-            }
+    mollieClient.payments
+        .get(req.body.id)
+        .then(payment => {
+            Order.findByIdAndUpdate(payment.metadata.order_id, { status: payment.status }, (err, order) => {
+                if (err) {
+                    console.log(err);
+                }
+            });
+            res.send(payment.status);
+        })
+        .catch(error => {
+            // Do some proper error handling.
+            res.send(error);
         });
 }
 
