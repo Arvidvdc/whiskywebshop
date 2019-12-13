@@ -14,12 +14,23 @@ The team responsible for this whisky webshop got the following members...
 * __Bennie__ Koops (developer) -https://github.com/BennieKoops-.
 
 ### New features
+##### 13 december 2019
+* Add payment via IDeal possible.
+* Add remove items from shopping cart.
+* Add Age verification.
+* Add shopping cart icon blinks when new items are added.
+* Add customers can register as customer.
+* Add contact information can be stored and edited.
+* Add user authorization.
+* Update navigation bar stays on top of page.
+* Update order and account information linked.
+
 ##### 29 november 2019
 * Add delivery address.
 * Payment method via invoice.
 
 ###### Bug Fixes
-* It is no longer possible to add a negative number of products to the shopping-cart.
+* It is no longer possible to add a negative number of products to the shopping cart.
 * Sort-function now also works with cents.
 * Button "bestellen" (order) on homepage changed to button "toevoegen".
 * When adding new products, more inputs are required.
