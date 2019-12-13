@@ -2,7 +2,6 @@ const   Article = require("../models/article");
 
 // NEW
 exports.new = (req, res) => {
-    console.log(req.user + " - " + req.isAuthenticated());
     res.render("./products/new");
 }
 
