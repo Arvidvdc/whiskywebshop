@@ -48,7 +48,7 @@ exports.profile_edit = (req,res) => {
         if(err){
             console.log("user.findById: " + err);
         } else {
-            res.render("./default/profiel", {page: 'profiel', user: user});
+            res.render("./default/profile", {page: 'profiel', user: user});
         };
     });
 }
