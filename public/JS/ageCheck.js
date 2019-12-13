@@ -51,6 +51,11 @@ function checkAge() {
     checkGivenMonth = parseInt(givenAge.slice(5, 7));
     checkGivenDay   = parseInt(givenAge.slice(8, 10));
     
+    // Stop function if given year is more than 150 years ago
+    if (checkGivenYear <= (currentYear - 150)) {
+        return
+    }
+
     // Check if year born + 18 is les or equal to current year
     if ((checkGivenYear + 18 ) <= currentYear) {
         // Check when year is good, if the month is less than current month
