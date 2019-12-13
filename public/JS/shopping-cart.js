@@ -140,6 +140,7 @@ function remFromCart() {
     let toRemProd = document.getElementById(remProdId);
     toRemProd.remove();
     cart.remove(remProdId);
+    totalPrice();
 }
 
 // start all basic functions that need to run on page load
