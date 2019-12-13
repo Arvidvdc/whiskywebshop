@@ -49,6 +49,7 @@ exports.order_post = (req, res) => {
 
     // create order variable
     let order = {
+        customerAccount: req.user._id,
         amount: stringAmount,
         articles: articles,
         address: orderData[0].address,
