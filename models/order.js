@@ -22,7 +22,8 @@ const orderSchema = new mongoose.Schema({
     },
     status: { type: String, default: "open"},
     paymentId: String,
-    orderedAt: Date
+    orderedAt: Date,
+    customerAccount: String
 });
 
 module.exports = mongoose.model("Order", orderSchema);
