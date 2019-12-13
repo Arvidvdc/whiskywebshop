@@ -1,56 +1,27 @@
-<div class="modal fade" id="ageModal" role="dialog" aria-labelledby="ageModalLabel" aria-hidden="true">
-    <div class="modal dialog" role="document">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Leeftijds controle</h5>
-        </div>
-        <div class="siteLine"></div>
-        <div class="modal-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Et non, praesentium dolores amet exercitationem cum tenetur aperiam ut fugit. 
-                            Cupiditate veniam cumque quibusdam iure, id ea tempora libero ratione odio quis animi assumenda a eum enim excepturi voluptatum nemo dolores inventore architecto mollitia eaque repellendus velit deleniti consequuntur. 
-                            Temporibus accusamus aliquid optio assumenda fuga placeat rerum error at laborum laboriosam.
-                        </p>
+<div class="modal fade" id="ageModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="ageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="module-header">
+                    <h5 class="modal-title module-title" id="ageModalLabel">Leeftijds controle</h5>
+                </div>
+                <div class="container modalContainer">
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                Hierbij geef je je leeftijd aan. Als je jonger dan 18 wordt je van de website weggeleid.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="row justify-content-around">
-                    <div class="col-auto">
-                        <select name="day" id="ageDay">
-                        <!-- Content for dropdown is script generared. -->
-                        </select>
-                    </div>
-                    <div class="col-auto">
-                        <select name="month" id="ageMonth">
-                            <option value="01">January</option>
-                            <option value="02">February</option>
-                            <option value="03">March</option>
-                            <option value="04">April</option>
-                            <option value="05">May</option>
-                            <option value="06">June</option>
-                            <option value="07">July</option>
-                            <option value="08">August</option>
-                            <option value="09">September</option>
-                            <option value="10">October</option>
-                            <option value="11">November</option>
-                            <option value="12">December</option>
-                        </select>
-                    </div>
-                    <div class="col-auto">
-                        <select name="year" id="ageYear">
-                        <!-- Content for dropdown is script generared. -->
-                        </select>
-                    </div>
+                <div class="siteLine"></div>
+                <div class="input-group">
+                    <input type="date" class="form-control" id="dateInput" placeholder="MM-DD-JJJJ">
+                    <button id="ageCheckBTN" type="button" class="btn btn-dark btn-sm input-group-btng">Ok</button>
                 </div>
-                
             </div>
         </div>
-        <div class="modal-footer">
-            <button id="buttonContinue" type="button" class="btn btn-success btn-sm">Leave</button>
-            <button id="buttonAgeCheck" type="button" class="btn btn-dark btn-sm">Verify age</button>
-        </div>
     </div>
-
 </div>
+
+<script src="/JS/ageCheck.js"></script>
