@@ -1,9 +1,20 @@
-const Order = require("../models/order"),
-    Article = require("../models/article");
+const   Order   = require("../models/order"),
+        User    = require("../models/user");
 
 // ORDER
 exports.order = (req, res) => {
-    res.render("./order/order");
+    if(req.user !== undefined){
+        let currentUserID= req.user._id;
+        User.findById(currentUserID, (err,userData)=>{
+            if(err){
+                console.log("user.findById: " + err);
+            } else {
+                res.render("./order/order", {userData: userData});
+            }
+        });
+    } else {
+        res.render("./order/order");
+    }
 }
 
 // PAYMENT
