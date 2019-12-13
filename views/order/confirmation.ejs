@@ -1,41 +1,16 @@
 <% include ../partials/header %>
 
-<div class="row justify-content-center">
-    <h1 class="col col-md-4">
-        Bestelling geplaatst!
-    </h1>
-</div>
-<div class="row justify-content-center">
-    <div class="col col-md-4">
-        De bestelling word verzonden nadat de factuur is betaald.
-    </div>    
-</div>
+<% let confirm = "";
+    if (payment.status == "paid") {
+        confirm = "succesvol"
+    } else if (payment.status == "open" || payment.status == "expired" || payment.status == "failed" || payment.status == "canceled" ) {
+        confirm = "niet gelukt"
+    } %>
 
 <div class="row justify-content-center">
-    <div class="col col-md-2">
-        Factuurnr:
-    </div>
-    <div class="col col-md-2 justify-self-end">
-        <%= order._id %>
-    </div>
-</div>
-<% order.articles.forEach((item) => { %>
-<div class="row justify-content-center">
-    <div class="col col-md-2">
-        <%= item.name %>
-    </div>
-    <div class="col col-md-1">
-        <%= item.amount %>
-    </div>
-</div>
-<% }); %>
-<div class="row justify-content-center">
-    <div class="col col-md-2">
-        Totaal:
-    </div>
-    <div class="col col-md-1">
-        <%= order.amount %>
-    </div>
+    <h1 class="col col-md-8">
+        Bestelling <%= payment.description%> <%=confirm%>
+    </h1>
 </div>
 
 

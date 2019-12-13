@@ -9,10 +9,14 @@ const   express = require("express"),
 // ORDER ROUTE
 router.get("/", order_controller.order);
 
-// PAYMENT ROUTE
-router.get("/betalen", order_controller.payment);
+router.post("/", order_controller.order_post);
 
-router.post("/betalen", order_controller.payment_post);
+// PAYMENT ROUTE
+router.get("/betalen/:id", order_controller.payment);
+
+router.post("/betalen/:id", order_controller.payment_post);
+
+router.post("/webhook", order_controller.webhook);
 
 // CONFIRMATION ROUTE
 router.get("/bevestiging/:id", order_controller.confirmation);

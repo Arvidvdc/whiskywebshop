@@ -17,10 +17,12 @@
     </div>
 </div>
 
-<button id="createOrderBtn" class="btn btn-primary">Betaal via factuur</button>
+<form action="/bestellen/betalen/<%=orderId%>" method="post">
+    <button class="btn btn-primary">Betalen</button>
+</form>
+
+
 <!-- redirect to payment provider -->
 <!-- redirect to confirmation page after payment -->
 <script src="/JS/shopping-cart.js"></script>
-<script src="/JS/paymentaddress.js"></script>
-<script src="/JS/create-order.js"></script>
 <% include ../partials/footer %>

@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
-    amount: Number,
+    amount: String,
     articles: [{
         id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Article"
         },
         name: String,
-        amount: Number
+        amount: String
     }],
     address: {
         company: String,
@@ -20,7 +20,8 @@ const orderSchema = new mongoose.Schema({
         street: String,
         city: String 
     },
-    paid: { type: Boolean, default: false },
+    status: { type: String, default: "open"},
+    paymentId: String,
     orderedAt: Date
 });
 
