@@ -47,9 +47,16 @@ exports.order_post = (req, res) => {
         articles.push(article);
     });
 
+    // let non logged in users order
+    let customer = "";
+    console.log(customer);
+    if (req.user !== undefined) {
+        customer = req.user._id;
+    }
+    console.log("customer" + customer);
     // create order variable
     let order = {
-        customerAccount: req.user._id,
+        customerAccount: customer,
         amount: stringAmount,
         articles: articles,
         address: orderData[0].address,
