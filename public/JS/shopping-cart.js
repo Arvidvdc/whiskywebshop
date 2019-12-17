@@ -160,8 +160,8 @@ function totalPrice(){
         let subTotal = ordprod.price * ordprod.amount;
         totalPriceCart += subTotal;
     });
-    if(totalPriceCart<0) {
-        document.getElementById("AddToBTN").disabled=true;
+    if(totalPriceCart<=0) {
+        document.getElementById("orderBTN").disabled=true;
     }
     document.getElementById("TotalAmount").innerText="€ " + totalPriceCart.toFixed(2).replace(".",",")
 }
