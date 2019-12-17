@@ -81,6 +81,7 @@ exports.payment = (req, res) => {
 }
 
 exports.payment_post = (req, res) => {
+    console.log(req.headers.host);
     let orderId = req.params.id;
     Order.findById(orderId, (err, foundOrder) => {
         if (err) {
