@@ -90,7 +90,7 @@ exports.payment_post = (req, res) => {
             // assign payment values to variables
             let orderAmount = foundOrder.amount;
             let desc = "Ordernr: " + orderId;
-            let siteUrl = "https://0ae8e041.ngrok.io/";
+            let siteUrl = "https://shielded-headland-22223.herokuapp.com/";
             let redirUrl = siteUrl + "bestellen/bevestiging/" + orderId;
             let webhook = siteUrl + "bestellen/webhook";
             // create mollie payment
