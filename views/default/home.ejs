@@ -1,12 +1,11 @@
 <% include ../partials/header %>
 
-<h1>Whiskys</h1>
 <div>
-    <button id="sortPrice">Sorteer op prijs</button>
+    
 </div>
 
 <div class="module-header">
-    <h4 class="module-title">Onze Whiskys</h4>
+    <h4 class="module-title">Onze Whiskys<button class="btn btn-primary" id="sortPrice">Sorteer op prijs</button></h4>
 </div>
 
 <div id="articles" class="row" data-loaded="products">
@@ -19,7 +18,7 @@
                     <span class="d-flex justify-content-end">€ <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label></span>
                     <%= article.description %> <br>
                     <input type="number" id="<%= article.id %>" placeholder="0" min="1" oninput="this.value = Math.abs(this.value)"> 
-                    <button type="button" name="AddToBTN" value="<%= article.id %>">toevoegen</button>
+                    <button type="button" class="btn btn-primary btn-sm" name="AddToBTN" value="<%= article.id %>">toevoegen</button>
                 </div>
             </div>
         </div>
