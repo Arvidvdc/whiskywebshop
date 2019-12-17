@@ -81,7 +81,6 @@ exports.payment = (req, res) => {
 }
 
 exports.payment_post = (req, res) => {
-    console.log(req.headers.host);
     let orderId = req.params.id;
     Order.findById(orderId, (err, foundOrder) => {
         if (err) {
@@ -91,7 +90,8 @@ exports.payment_post = (req, res) => {
             // assign payment values to variables
             let orderAmount = foundOrder.amount;
             let desc = "Ordernr: " + orderId;
-            let siteUrl = req.headers.host;
+            let siteUrl = "https://" + req.headers.host;
+            console.log("BeardSquad: " + siteUrl);
             let redirUrl = siteUrl + "bestellen/bevestiging/" + orderId;
             let webhook = siteUrl + "bestellen/webhook";
             // create mollie payment
