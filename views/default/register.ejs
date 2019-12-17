@@ -1,34 +1,37 @@
 <% include ../partials/header %>
 
-<h1>Registreren</h1>
+<div class="module-header">
+    <h4 class="module-title">Registreren</h4 class="module-title">
+</div>
 <form action="/registreren" method="POST">
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
             <label>Gebruikersnaam</label>
         </div>
         <div class="col">
-            <input name="username" type="text" placeholder="Gewenste gebruikersnaam." required>
+            <input class="form-control" name="username" type="text" placeholder="Gewenste gebruikersnaam." required>
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
             <label>Wachtwoord</label>
         </div>
         <div class="col">
-            <input name="password" type="password" placeholder="Geef een wachtwoord op." required>
+            <input class="form-control" name="password" type="password" placeholder="Geef een wachtwoord op." required>
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
             <label>Emailadres</label>
         </div>
         <div class="col">
-            <input name="email" type="email" placeholder="Vul uw emailadres in." required>
+            <input class="form-control" name="email" type="email" placeholder="Vul uw emailadres in." required>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <input type="submit" value="Registreren">
+        <div class="col"></div>
+        <div class="col-auto justify-content-end">
+            <input class="btn btn-primary" type="submit" value="Registreren">
         </div>
     </div>
 </form>
