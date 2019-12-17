@@ -14,6 +14,10 @@ The team responsible for this whisky webshop got the following members...
 * __Bennie__ Koops (developer) -https://github.com/BennieKoops-.
 
 ### New features
+###### Bug Fixes 17 december 2019
+* Error with fixed payment tunnel repaired
+* When the shopping cart is empty, button "Afrekenen" is disabled.
+
 ##### 13 december 2019
 * Add payment via IDeal possible.
 * Add remove items from shopping cart.
