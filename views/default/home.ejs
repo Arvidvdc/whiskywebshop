@@ -12,14 +12,14 @@
     <% articles.forEach(article => { %>
         <div class="article col col-md-4" data-price="<%= article.price %>" data-Name="<%= article.name %>" data-Id="<%= article.id %>" data-image="<%= article.image %>">
             <div class="thumbnail">
-                <img src="<%= article.image %>" alt="">
-                <div class="caption">
-                    <h4><label id="name"><%= article.name %></label></h4>
-                    <span class="d-flex justify-content-end">€ <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label></span>
-                    <%= article.description %> <br>
-                    <input type="number" id="<%= article.id %>" placeholder="0" min="1" oninput="this.value = Math.abs(this.value)"> 
-                    <button type="button" class="btn btn-primary btn-sm" name="AddToBTN" value="<%= article.id %>">toevoegen</button>
-                </div>
+                <img src="<%= article.image %>" alt="image <%= article.name %>">
+            </div>
+            <div class="caption">
+                <h4><label id="name"><%= article.name %></label></h4>
+                <span class="d-flex justify-content-end">€ <label id="price"><%= article.price.toFixed(2).replace(".",",") %></label></span>
+                <%= article.description %> <br>
+                <input type="number" id="<%= article.id %>" placeholder="0" min="1" oninput="this.value = Math.abs(this.value)"> 
+                <button type="button" class="btn btn-primary btn-sm" name="AddToBTN" value="<%= article.id %>">toevoegen</button>
             </div>
         </div>
     <% }); %>
