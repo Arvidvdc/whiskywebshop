@@ -91,7 +91,6 @@ exports.payment_post = (req, res) => {
             let orderAmount = foundOrder.amount;
             let desc = "Ordernr: " + orderId;
             let siteUrl = "https://" + req.headers.host + "/";
-            console.log("BeardSquad: " + siteUrl);
             let redirUrl = siteUrl + "bestellen/bevestiging/" + orderId;
             let webhook = siteUrl + "bestellen/webhook";
             // create mollie payment
