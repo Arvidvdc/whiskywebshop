@@ -1,50 +1,89 @@
 
 <% include ../partials/header %>
-
-<div>
-    <h1>Voeg Product Toe</h1>
+    <div class="module-header">
+        <h4 class="module-title">Nieuw Product</h4>
+    </div>
     <form action="/producten/nieuw" method="POST">
-        <div>
-            <label>Naam:</label>
-            <input name="product[name]" type="text" placeholder="Whisky" required>
+        <div class="row form-group">
+            <div class="col">
+                <label>Naam:</label>
+            </div>
+            <div class="col">
+                <input class="form-control" name="product[name]" type="text" placeholder="Whisky" required>
+            </div>
         </div>
-        <div>
-            <label>Prijs:</label>
-            <input name="product[price]" type="number" placeholder="€ 0,00" min="0" step="0.1" required>
+        <div class="row form-group">
+            <div class="col">
+                <label>Prijs:</label>
+            </div>
+            <div class="col">
+                <input class="form-control" name="product[price]" type="number" placeholder="€ 0,00" min="0" step="0.1" required>
+            </div>            
         </div>
-        <div>
-            <label>Leeftijd:</label>
-            <input name="product[age]" type="number" min="3" placeholder="3">
+        <div class="row form-group">
+            <div class="col">
+                <label>Leeftijd:</label>
+            </div>
+            <div class="col">
+                <input class="form-control" name="product[age]" type="number" min="3" placeholder="3">
+            </div>
         </div>
-        <div>
-            <label>Distillerij</label>
-            <input name="product[distillery]" type="text" placeholder="Distillerij" required>
+        <div class="row form-group">
+            <div class="col">
+                <label>Distillerij</label>
+            </div>
+            <div class="col">
+                <input class="form-control" name="product[distillery]" type="text" placeholder="Distillerij" required>
+            </div>
         </div>
-        <div>
-            <label>Pallet:</label>
-            <input name="product[pallet]" type="text" placeholder="Pallet" required>
+        <div class="row form-group">
+            <div class="col">
+                <label>Pallet:</label>
+            </div>
+            <div class="col">
+                <input class="form-control" name="product[pallet]" type="text" placeholder="Pallet" required>
+            </div>
         </div>
-        <div>
-            <label>Land van herkomst:</label>
-            <input name="product[country]" type="text" placeholder="Land" required>
+        <div class="row form-group">
+            <div class="col">
+                <label>Land van herkomst:</label>
+            </div>
+            <div class="col">
+                <input class="form-control" name="product[country]" type="text" placeholder="Land" required>
+            </div>
         </div>
-        <div>
-            <label>Regio:</label>
-            <input name="product[region]" type="text" placeholder="Regio">
+        <div class="row form-group">
+            <div class="col">
+                <label>Regio:</label>
+            </div>
+            <div class="col">
+                <input class="form-control" name="product[region]" type="text" placeholder="Regio">
+            </div>
         </div>
-        <div>
-            <label>Afbeelding URL:</label>
-            <input name="product[image]" type="url" placeholder="URL naar de afbeelding" required>
+        <div class="row form-group">
+            <div class="col">
+                <label>Afbeelding URL:</label>
+            </div>
+            <div class="col">
+                <input class="form-control" name="product[image]" type="url" placeholder="URL naar de afbeelding" required>
+            </div>
         </div>
-        <div>
-            <label>Omschrijving:</label>
-            <textarea name="product[description]" placeholder="Over het product..." required></textarea>
+        <div class="row">
+            <div class="col">
+                 <label>Omschrijving:</label>
+            </div>
         </div>
-        <div>
-            <input type="submit" value="Voeg toe">
+        <div class="row form-group">
+            <div class="col">
+                <textarea class="form-control" name="product[description]" placeholder="Over het product..." required></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-auto justify-content-end">
+                <input type="submit" class="btn btn-dark" value="Voeg toe">
+            </div>
         </div>
     </form>
-</div>
-
 
 <% include ../partials/footer %>

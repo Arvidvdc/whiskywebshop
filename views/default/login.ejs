@@ -1,25 +1,28 @@
 <% include ../partials/header %>
-<h1>Login</h1>
+<div class="module-header">
+    <h4 class="module-title">Login</h4>
+</div>
 <form action="/login" method="post">
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
             <label>Inlognaam:</label>
         </div>
         <div class="col">
-            <input type="text" name="username"  placeholder="Gebruikersnaam" required>
+            <input class="form-control" type="text" name="username"  placeholder="Gebruikersnaam" required>
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group">
         <div class="col">
             <label>Wachtwoord:</label>
         </div>
         <div class="col">
-            <input type="password" name="password"  placeholder="Wachtwoord" required>
+            <input class="form-control" type="password" name="password"  placeholder="Wachtwoord" required>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <input type="submit" value="Inloggen">
+    <div class="row form-group">
+        <div class="col"></div>
+        <div class="col-auto justify-content-end">
+            <input class="btn btn-outline-dark" type="submit" value="Inloggen">
         </div>
     </div>
 </form>

@@ -1,9 +1,9 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <h1>Bestellen</h1>
+    <div class="module-header">
+        <h4 class="module-title">Bestellen</h4>
+    </div>
 
-    <!-- add adres form -->
     <form>
         <div class="form-group row">
             <div class="col">
@@ -45,13 +45,14 @@
                 <input class="form-control" name="city" type="text" <%= typeof userData !== 'undefined' ? 'value=' + userData.city : '' %>>
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <button type="submit" id="addressBtn" class="btn btn-primary">Verder met bestellen</button>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-auto justify-content-end">
+                <button type="submit" id="addressBtn" class="btn btn-dark">Verder met bestellen</button>
             </div>
         </div>
     </form>
-</div>
+
 <script src="/JS/shopping-cart.js"></script>
 <script src="/JS/paymentaddress.js"></script>
 <% include ../partials/footer %>

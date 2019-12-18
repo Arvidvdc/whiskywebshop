@@ -81,3 +81,16 @@ body {
 .blink {
     animation: blink 0.5s linear infinite ;
 }
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 30px;
+    line-height: 15px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+    text-transform: uppercase;
+    font-size: x-small;
+  }
