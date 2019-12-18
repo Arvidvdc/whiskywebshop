@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
 <div class="module-header">
-    <h4 class="module-title">Onze Whiskys<button class="btn btn-outline-dark" id="sortPrice">Sorteer op prijs</button></h4>
+    <h4 class="module-title">Onze Whiskys<button class="btn btn-dark" id="sortPrice">Sorteer op prijs</button></h4>
 </div>
 
 <div id="articles" class="row" data-loaded="products">
@@ -19,7 +19,7 @@
                 <% } %>
                 <br>
                 <input type="number" id="<%= article.id %>" placeholder="0" min="1" oninput="this.value = Math.abs(this.value)"> 
-                <button type="button" class="btn btn-outline-dark btn-sm" name="AddToBTN" value="<%= article.id %>">toevoegen</button>
+                <button type="button" class="btn btn-dark btn-sm" name="AddToBTN" value="<%= article.id %>">toevoegen</button>
             </div>
         </div>
     <% }); %>
