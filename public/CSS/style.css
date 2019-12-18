@@ -94,3 +94,13 @@ body {
     text-transform: uppercase;
     font-size: x-small;
   }
+
+  .footerLine {
+    content: "";
+    background: #161616;
+    height: 6px;
+}
+
+#articles {
+    margin-bottom: 50px;
+}
