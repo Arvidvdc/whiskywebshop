@@ -14,6 +14,9 @@ The team responsible for this whisky webshop got the following members...
 * __Bennie__ Koops (developer) -https://github.com/BennieKoops-.
 
 ### New features
+###### Bug Fixes 19 december 2019
+* Fixed 'undefined message on order page.
+
 ##### 18 december 2019
 * Add footer.
 * Update layout and styling.
